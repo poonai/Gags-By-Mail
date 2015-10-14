@@ -86,6 +86,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 }
 
 </style>
+<script>
+console.log(" Crafted with ♥ by Balaji");
+</script>
 </head>
 <body>
 <!-- header_top -->
@@ -171,18 +174,22 @@ This website is owned by Oye Happy and all the products, images, content, materi
 		<div class="header_right">
 			<div class="rgt-bottom">
 				<div class="log">
+          @if(Session::get('loginfo',1))
 					<div class="login" >
-						<div id="loginContainer"><a href="#" id="loginButton"><span>Login</span></a>
+						<div id="loginContainer"><a href="#" id="loginButton"><span>Login</span></a> <div class="{{$loginfo?"":'hidden'}} ui pointing label">
+      Enter Valid Information
+    </div>
 						    <div id="loginBox">
-						        <form id="loginForm">
+						        <form id="loginForm" action="/login" method="post">
+                      <input type="hidden" name="_token" value="<?php echo csrf_token(); ?>">
 						                <fieldset id="body">
 						                	<fieldset>
-						                          <label for="email">Email Address</label>
-						                          <input type="text" name="email" id="email">
+						                          <label for="mail">Email Address</label>
+						                          <input name="mail" type="text"  id="email">
 						                    </fieldset>
 						                    <fieldset>
 						                            <label for="password">Password</label>
-						                            <input type="password" name="password" id="password">
+						                            <input name="password" type="password"  id="password">
 						                     </fieldset>
 						                    <input type="submit" id="login" value="Sign in">
 						                	<label for="checkbox"><input type="checkbox" id="checkbox"> <i>Remember me</i></label>
@@ -191,10 +198,13 @@ This website is owned by Oye Happy and all the products, images, content, materi
 								</form>
 							</div>
 						</div>
+            @else
+          	<div id="loginContainer"><a href="/logout"><span>Logout</span></a></div>
+            @endif
 					</div>
 				</div>
 				<div class="reg">
-					<a href="register.html">REGISTER</a>
+					<a href="/register">REGISTER</a>
 				</div>
 			<div class="cart box_1">
 				<a href="checkout.html">

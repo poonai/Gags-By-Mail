@@ -145,7 +145,7 @@ function modalc()
 					</div>
 				</div>
 				<div class="reg">
-					<a href="register.html">REGISTER</a>
+					<a href="/register">REGISTER</a>
 				</div>
 			<div class="cart box_1">
 				<a href="checkout.html">
@@ -260,7 +260,7 @@ function modalc()
 
 				<div>
 					<label>
-						<input name="mail" placeholder="email address:" type="email" tabindex="3" required>
+						<input name="mail" placeholder="email address:" style="text-transform: lowercase;" type="email" tabindex="3" required>
             <div class="{{$lable?"ui pointing label red":"hidden"}}">
      email already taken
    </div>
