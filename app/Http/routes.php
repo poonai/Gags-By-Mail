@@ -10,25 +10,6 @@
 | and give it the controller to call when that URI is requested.
 |
 */
-Route::get('/shop','test@shoppage');
 Route::get('/','test@index');
-Route::get('/test','test@demo');
-Route::get('/reset',function()
-{
-  return view("reset");
-});
-
-//Route::get
-Route::get('/login',function ()
-{
-  return view('login');
-});
-Route::post('/register','test@register');
-Route::get('/demo','test@anja');
-Route::post('/login','test@login');
-Route::post('/reset','test@reset');
-Route::get('resetpass/{token}','test@resetpass');
-Route::post('resetpass','test@passreset');
-Route::get('/logout','test@logout');
-Route::get('/addcart/{id}','test@addcart');
-Route::get('/cart','test@cart');
+Route::get('/register','test@register');
+Route::post('/register','test@registerdb');
