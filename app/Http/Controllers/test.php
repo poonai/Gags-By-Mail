@@ -25,6 +25,16 @@ class test extends Controller
       $item=new item;
       return view('shop',['lable'=>0,'loginfo'=>0,'item'=>$item->all()]);
     }
+    function add($id)
+    {
+      $ids=Session::get('id',array());
+      $price=Session::get('price',0);
+      $price=$price+item::find($id)->price;
+      array_push($ids,$id);
+      Session::put('id',$ids);
+      Session::put('price',$price);
+      echo json_encode(array('no'=>count($ids),'price'=>$price));
+    }
     function registerdb(Request $request)
     {
       $user=new user;
@@ -68,9 +78,7 @@ class test extends Controller
 }
     function anja()
     {
-       $a=new item;
-       $a=$a->all();
-       dd($a);
+       Session::flush();
 
     }
 }

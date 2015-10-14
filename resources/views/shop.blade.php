@@ -1,5 +1,7 @@
 @extends('header')
+@section('script')
 
+@endsection
 @section('middle')
 
 <div style="margin-top:2%;" class="ui two column centered grid">
@@ -25,7 +27,11 @@
 			      RS.{{$single->price}}
 
 			    </a>
-          <button class="ui violet button" onclick="addtocart({{$single->id}})"><i class="fa fa-shopping-cart"></i>Add to Cart</button>
+          @if(in_array($single->id,Session::get('id',array())))
+          <button id={{$single->id}} class="ui disabled violet button" onclick="addtocart({{$single->id}})"></i>Added</button>
+          @else
+            <button id={{$single->id}} class="ui  violet button" onclick="addtocart({{$single->id}})"><i class="fa fa-shopping-cart"></i>Added</button>
+            @endif
 			  </div>
 			</div>
 		</div>

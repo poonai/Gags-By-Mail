@@ -78,7 +78,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <script type="text/javascript" src="js/megamenu.js"></script>
 <script>$(document).ready(function(){$(".megamenu").megamenu();});</script>
 <script src="js/menu_jquery.js"></script>
-<script src="js/simpleCart.min.js"> </script>
+
 <style>
 #owl-demo .item img{
     display: block;
@@ -90,7 +90,10 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 </style>
 <script>
 console.log(" Crafted with ♥ by Balaji");
+
+
 </script>
+
 @yield('script')
 </head>
 <body>
@@ -212,9 +215,9 @@ This website is owned by Oye Happy and all the products, images, content, materi
 
 			<div class="cart box_1">
 				<a href="checkout.html">
-					<h3> <span class="simpleCart_total">$0.00</span> (<span id="simpleCart_quantity" class="simpleCart_quantity">0</span> items)<img src="images/bag.png" alt=""></h3>
+					<h3> <span id="price" class="simpleCart_total">RS.{{Session::get('price',0)}}</span> (<span id="simpleCart_quantity"  class="simpleCart_quantity">{{count(Session::get('id',array()))}}</span> items)<img src="images/bag.png" alt=""></h3>
 				</a>
-				<!--<p><a href="javascript:;" class="simpleCart_empty">(empty card)</a></p>-->
+
 				<div class="clearfix"> </div>
 			</div>
 			<div class="create_btn">
@@ -270,5 +273,22 @@ This website is owned by Oye Happy and all the products, images, content, materi
   		<center><p>Copyrights © 2015 Gags By Mail</p></center>
   </div>
 </div>
+<script>
+function addtocart(id)
+{
+  $.ajax({url: "/add/"+id, success: function(result){
+    changevalue( JSON.parse(result).price,JSON.parse(result).no,id);
+
+
+  }});
+}
+function changevalue(price,no,id)
+{
+  document.getElementById("price").innerHTML ="Rs"+price;
+  document.getElementById("simpleCart_quantity").innerHTML =no;
+  document.getElementById(id).className = "ui disabled button ";
+  document.getElementById(id).innerHTML ="Added";
+}
+</script>
 </body>
 </html>
