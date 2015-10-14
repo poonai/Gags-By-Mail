@@ -16,3 +16,4 @@ Route::post('/register','test@registerdb');
 Route::get('/test','test@anja');
 Route::get('/logout','test@logout');
 Route::post('/login','test@login');
+Route::get('/shop','test@product');
