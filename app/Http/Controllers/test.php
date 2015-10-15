@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use App\instamojo\instamojo;
 use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
@@ -50,7 +50,7 @@ class test extends Controller
             return view('checkout',['lable'=>0,'loginfo'=>0,'id'=>Session::get('id',array()),'item'=>$item,'placelogin'=>1]);
       }
       else {
-        echo "check";
+          return view('placeorderform',['loginfo'=>0,'placelogin'=>0]);;
       }
     }
   function remove($id)
@@ -112,7 +112,7 @@ echo json_encode($response);
        if($user->password==md5($request['password']))
        {
          Session::put('loginfo',0);
-         Session::put('id',$user->id);
+         Session::put('uid',$user->id);
          return redirect('/');
        }
        else {
@@ -124,5 +124,23 @@ echo json_encode($response);
     {
        Session::flush();
 
+    }
+    function anvena()
+    {
+
+$api = new Instamojo('494fa9c31404f789b9ba86de7fb94480', 'eefb9b6c0114e18126349b73ecab8310');
+      try {
+    $response = $api->linkCreate(array(
+        'title'=>'Hello API',
+        'description'=>'Create a new Link easily',
+        'base_price'=>100,
+        'currency'=>'INR',
+        'cover_image'=>'/path/to/photo.jpg'
+        ));
+    print_r($response);
+}
+catch (Exception $e) {
+    print('Error: ' . $e->getMessage());
+}
     }
 }

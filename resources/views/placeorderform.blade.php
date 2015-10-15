@@ -1,11 +1,32 @@
 @extends('header')
 <!-- content -->
 @section('middle')
+<script>
+function victim()
+{
+$("#2").attr('class', 'ui button disabled registration_left');
+$("#1").attr('class', 'ui button registration_left');
+}
+function myplace()
+{
+$("#1").attr('class', 'ui button disabled registration_left');
+$("#2").attr('class', 'ui button registration_left');
+}
+</script>
+
 <div class="container">
-<div class="main">
+  <center> <div class="ui buttons">
+    <button class="ui button" onclick="victim()">My PLace</button>
+    <div class="or"></div>
+    <button class="ui positive button" onclick="myplace()">Victum Place</button>
+    <div class="main">
+</div></center>
+
 	<!-- start registration -->
-	<div class="registration">
-		<div class="registration_left">
+
+	<div class=" registration">
+
+		<div id="1" class="ui button disabled registration_left">
 		<h2>new user? <span> create an account </span></h2>
 		<!-- [if IE]
 		    < link rel='stylesheet' type='text/css' href='ie.css'/>
@@ -52,8 +73,10 @@
 
 		})();
 		</script>
+
 		 <div class="registration_form">
 		 <!-- Form -->
+
 			<form id="registration_form" action="/register" method="post">
 
 
@@ -67,9 +90,7 @@
 				<div>
 					<label>
 						<input name="mail" placeholder="email address:" style="text-transform: lowercase;" type="email" tabindex="3" required>
-            <div class="{{$lable?"ui pointing label red":"hidden"}}">
-     email already taken
-   </div>
+
 					</label>
 				</div>
 				<div class="sky-form">
@@ -99,7 +120,7 @@
 			<!-- /Form -->
 		</div>
 	</div>
-	<div class="hidden registration_left">
+	<div id="2" class="ui button registration_left">
 		<h2>existing user</h2>
 		 <div class="registration_form">
 		 <!-- Form -->

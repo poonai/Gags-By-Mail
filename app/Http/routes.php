@@ -21,3 +21,4 @@ Route::get('/add/{id}','test@add');
 Route::get('/checkout/','test@checkout');
 Route::post('/checkout/','test@proceed');
 Route::get('/remove/{id}','test@remove');
+Route::get('/instamojo/','test@anvena');
