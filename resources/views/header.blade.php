@@ -86,8 +86,13 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     height:35em;
     margin-top: 1%;
 }
-
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
 </style>
+
 <script>
 console.log(" Crafted with ♥ by Balaji");
 
@@ -185,6 +190,9 @@ This website is owned by Oye Happy and all the products, images, content, materi
 						<div id="loginContainer"><a href="#" id="loginButton"><span>Login</span></a> <div class="{{$loginfo?"":'hidden'}} ui pointing label">
       Enter Valid Information
     </div>
+    <div class="{{$placelogin?"":'hidden'}} ui pointing label red">
+Log in before Placing order
+</div>
 						    <div id="loginBox">
 						        <form id="loginForm" action="/login" method="post">
                       <input type="hidden" name="_token" value="<?php echo csrf_token(); ?>">
@@ -198,9 +206,11 @@ This website is owned by Oye Happy and all the products, images, content, materi
 						                            <input name="password" type="password"  id="password">
 						                     </fieldset>
 						                    <input type="submit" id="login" value="Sign in">
+
 						                	<label for="checkbox"><input type="checkbox" id="checkbox"> <i>Remember me</i></label>
 						            	</fieldset>
 						            <span><a href="#">Forgot your password?</a></span>
+                          <span><a href="/register">Sign up here</a></span>
 								</form>
 							</div>
 						</div>
