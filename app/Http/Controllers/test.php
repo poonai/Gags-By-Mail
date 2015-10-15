@@ -25,6 +25,20 @@ class test extends Controller
       $item=new item;
       return view('shop',['lable'=>0,'loginfo'=>0,'item'=>$item->all()]);
     }
+    function checkout()
+    {
+      $id=Session::get('id',array());
+      $item=array();
+      foreach ($id as $value) {
+        $value=item::find($value);
+       array_push($item, $value);
+      }
+        return view('checkout',['lable'=>0,'loginfo'=>0,'id'=>Session::get('id',array()),'item'=>$item]);
+    }
+    function proceed()
+    {
+
+    }
     function add($id)
     {
       $ids=Session::get('id',array());

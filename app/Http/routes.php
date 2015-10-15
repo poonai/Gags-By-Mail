@@ -18,3 +18,5 @@ Route::get('/logout','test@logout');
 Route::post('/login','test@login');
 Route::get('/shop','test@product');
 Route::get('/add/{id}','test@add');
+Route::get('/checkout/','test@checkout');
+Route::post('/checkout/','test@proceed');
