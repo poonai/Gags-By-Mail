@@ -7,6 +7,10 @@ use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use App\user;
 use App\item;
+use App\order;
+use App\product_tokens;
+use App\order_address;
+use App\product_token;
 use Session;
 
 class test extends Controller
@@ -40,6 +44,7 @@ class test extends Controller
     {
       $id=Session::get('id',array());
 
+      $ordered_item=$request['id'];
       $item=array();
       foreach ($id as $value) {
         $value=item::find($value);
@@ -50,7 +55,18 @@ class test extends Controller
             return view('checkout',['lable'=>0,'loginfo'=>0,'id'=>Session::get('id',array()),'item'=>$item,'placelogin'=>1]);
       }
       else {
-          return view('placeorderform',['loginfo'=>0,'placelogin'=>0]);;
+
+          $productid=md5(Session::get('uid').rand());
+          foreach ($ordered_item as $value) {
+            $order=new order;
+              $order->u_id=Session::get('uid');
+              $order->item_id=$value;
+              $order->product_id=$productid;
+              $order->save();
+          }
+
+
+          return view('placeorderform',['loginfo'=>0,'placelogin'=>0,'user'=>user::all(),'productid'=>$productid]);;
       }
     }
   function remove($id)
@@ -120,12 +136,62 @@ echo json_encode($response);
        }
     }
 }
+function myplaceorder(Request $request)
+{
+  $order_address=new order_address;
+  $order_address->name=$request['name'];
+  $order_address->save();
+  $token=$request['productid'];
+  $order_token=new product_token;
+  $order_token->u_id=Session::get('uid');
+  $order_token->order_token=$token;
+  $order_token->save();
+  $api = new Instamojo('494fa9c31404f789b9ba86de7fb94480', 'eefb9b6c0114e18126349b73ecab8310');
+        try {
+      $response = $api->linkCreate(array(
+          'title'=>'Gags By Mail',
+          'description'=>'Create a new Link easily',
+          'base_price'=>Session::get('price',0),
+          'currency'=>'INR',
+          'redirect_url'=>'http://localhost:8000/sucess/'.$token
+          ));
+    $user=user::find(Session::get('uid'));
+    //dd($user);
+
+      return redirect($response['url']."?data_name=".$user->name."&data_email=".$user->email."&data_readonly=data_name&data_readonly=data_email");
+  }
+  catch (Exception $e) {
+      print('Error: ' . $e->getMessage());
+  }
+}
+function sucess($token)
+{
+  $product_token=product_token::where('order_token',$token)->get();
+  //dd($product_token);
+  foreach($product_token as $orders)
+  {
+    $orders->order_info=true;
+    $orders->save();
+  }
+  //$loginfo=Session::put('loginfo');
+  
+  echo "sucess full transaction".$_GET['status'];
+}
+
+function chellam($token)
+{
+  $order_token=new order_token;
+  $order_token->u_id=Session::get('uid');
+  $order_token->order_token=$token;
+  $order_token->save();
+  anvena($token);
+}
     function anja()
     {
        Session::flush();
 
     }
-    function anvena()
+    function anvena($token)
     {
 
 $api = new Instamojo('494fa9c31404f789b9ba86de7fb94480', 'eefb9b6c0114e18126349b73ecab8310');
@@ -133,9 +199,9 @@ $api = new Instamojo('494fa9c31404f789b9ba86de7fb94480', 'eefb9b6c0114e18126349b
     $response = $api->linkCreate(array(
         'title'=>'Hello API',
         'description'=>'Create a new Link easily',
-        'base_price'=>100,
+        'base_price'=>Sesson::price,
         'currency'=>'INR',
-        'cover_image'=>'/path/to/photo.jpg'
+        'redirect_url'=>'http://localhost:8000/'.$token
         ));
     print_r($response);
 }
@@ -143,4 +209,5 @@ catch (Exception $e) {
     print('Error: ' . $e->getMessage());
 }
     }
+    //function anvena_da
 }
