@@ -1,4 +1,4 @@
-@extends('header');
+@extends('header')
 @section('middle')
 <div class="container">
 	<div class="check">
@@ -35,12 +35,12 @@
 			 <h1>My Shopping Bag (2)</h1>
        <form action="/checkout" method="post">
            <input type="hidden" name="_token" value="<?php echo csrf_token(); ?>">
-         @foreach($item as $single)
+
 				<script>$(document).ready(function(c) {
-					$('#{{$single->id}}re').on('click', function(c){
-						$('.cart-header {{$id}}').fadeOut('slow', function(c){
-							$('.cart-header {{$id}}').remove();
-							$.ajax({url: "/remove/"+{{$single->id}}, success: function(result){
+					$('.close{{$id}}').on('click', function(c){
+						$('.cart-header{{$id}}').fadeOut('slow', function(c){
+							$('.cart-header{{$id}}').remove();
+							$.ajax({url: "/remove/", success: function(result){
 						    document.getElementById("total1").innerHTML=JSON.parse(result).price;
 								document.getElementById("total2").innerHTML=JSON.parse(result).price;
                 document.getElementById("price").innerHTML=JSON.parse(result).price;
@@ -54,9 +54,37 @@
 					});
 
 			   </script>
-
-			 <div class="cart-header {{$id}}">
-				 <div id="{{$single->id}}re" class="close{{$id++}}"> </div>
+				 <table class="ui celled padded table">
+				   <thead>
+				     <tr><th class="single line">Item Name</th>
+				     <th>Effect</th>
+				     <th>Efficacy</th>
+				     <th>Consensus</th>
+				     <th>Comments</th>
+				   </tr></thead>
+				   <tbody>
+						 @foreach($item as $single)
+				     <tr id="{{$single->id}}">
+				       <td>
+				         <p class="ui center aligned">{{$single->name}}</p>
+				       </td>
+				       <td class="single line">
+				         Power Output
+				       </td>
+				       <td>
+				         <div class="ui star rating" data-rating="3" data-max-rating="3"></div>
+				       </td>
+				       <td class="right aligned">
+				         80% <br>
+				         <a href="#">18 studies</a>
+				       </td>
+				       <td><a onclick="itemremove({{$single->id}})" href="#">remove</a></td>
+				     </tr>
+				     @endforeach
+				   </tbody>
+				 </table>
+		<!--	 <div class="cart-header{{$id}}">
+				 <div  class="close{{$id}}"> </div>
 				 <div class="cart-sec simpleCart_shelfItem">
 						<div class="cart-item cyc">
                <input name="id[]" value="{{$single->id}}" class="hidden">
@@ -78,8 +106,8 @@
 					   <div class="clearfix"></div>
 
 				  </div>
-			 </div>
-       @endforeach
+			 </div>-->
+
        <input class="hidden" id="place" type="submit">
 </form>
 		 </div>
@@ -92,9 +120,19 @@
 
 </div>
 <script>
+function itemremove(id)
+{
+	$("#"+id).remove();
+	$.ajax({url: "/remove/"+id, success: function(result){
+		document.getElementById("total1").innerHTML=JSON.parse(result).price;
+		document.getElementById("total2").innerHTML=JSON.parse(result).price;
+		document.getElementById("price").innerHTML=JSON.parse(result).price;
+		document.getElementById("simpleCart_quantity").innerHTML=JSON.parse(result).no;
+}
 function submit()
 {
 	document.getElementById('place').click();
 }
+
 </script>
 @endsection
