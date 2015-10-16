@@ -15,7 +15,7 @@ class CreateProductTokensTable extends Migration
         Schema::create('product_tokens', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('u_id');
-            $table->string('product_id');
+            $table->string('order_id');
             $table->string('order_token');
             $table->boolean('order_info');
             $table->timestamps();

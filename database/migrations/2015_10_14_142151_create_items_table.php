@@ -17,6 +17,8 @@ class CreateItemsTable extends Migration
             $table->string('name');
             $table->string('shortline');
             $table->string('bigline');
+            $table->string('spec1');
+              $table->string('spec2');
             $table->string('url');
             $table->string('detail');
             $table->integer ('price');

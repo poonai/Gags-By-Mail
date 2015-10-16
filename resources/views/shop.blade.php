@@ -18,9 +18,7 @@
 			    <div class="meta">
 			      <span class="date">{{$single->shortline}}</span>
 			    </div>
-			    <div class="description">
-			      {{$single->bigline}}
-			    </div>
+			    
 			  </div>
 			  <div class="extra content">
 			    <a>

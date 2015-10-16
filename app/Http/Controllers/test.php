@@ -61,7 +61,7 @@ class test extends Controller
             $order=new order;
               $order->u_id=Session::get('uid');
               $order->item_id=$value;
-              $order->product_id=$productid;
+              $order->order_id=$productid;
               $order->save();
           }
 
@@ -140,11 +140,17 @@ function myplaceorder(Request $request)
 {
   $order_address=new order_address;
   $order_address->name=$request['name'];
+  $order_address->phone=(string)$request['Contact Number'];
+  $order_address->pincode=$request['postalcode'];
+  $order_address->address=$request['address'];
+  $order_address->message=$request['Personalized'];
   $order_address->save();
   $token=$request['productid'];
   $order_token=new product_token;
   $order_token->u_id=Session::get('uid');
-  $order_token->order_token=$token;
+  $order_token->order_id=$token;
+  $return_key=md5($token.rand());
+  $order_token->order_token=$return_key;
   $order_token->save();
   $api = new Instamojo('494fa9c31404f789b9ba86de7fb94480', 'eefb9b6c0114e18126349b73ecab8310');
         try {
@@ -153,7 +159,7 @@ function myplaceorder(Request $request)
           'description'=>'Create a new Link easily',
           'base_price'=>Session::get('price',0),
           'currency'=>'INR',
-          'redirect_url'=>'http://localhost:8000/sucess/'.$token
+          'redirect_url'=>'http://localhost:8000/sucess/'.$return_key
           ));
     $user=user::find(Session::get('uid'));
     //dd($user);
@@ -166,16 +172,17 @@ function myplaceorder(Request $request)
 }
 function sucess($token)
 {
-  $product_token=product_token::where('order_token',$token)->get();
+  $product_token=product_token::where('order_token',$return_key)->get();
   //dd($product_token);
   foreach($product_token as $orders)
   {
     $orders->order_info=true;
     $orders->save();
+      echo "sucess full transaction".$_GET['status'];
   }
   //$loginfo=Session::put('loginfo');
-  
-  echo "sucess full transaction".$_GET['status'];
+
+
 }
 
 function chellam($token)

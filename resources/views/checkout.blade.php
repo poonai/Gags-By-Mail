@@ -30,15 +30,16 @@
 				 <p><a href="#">Log In</a> to use accounts - linked coupons</p>
 			 </div>
 			</div>
+			{{$id=1}}
 		 <div class="col-md-9 cart-items">
 			 <h1>My Shopping Bag (2)</h1>
        <form action="/checkout" method="post">
            <input type="hidden" name="_token" value="<?php echo csrf_token(); ?>">
          @foreach($item as $single)
 				<script>$(document).ready(function(c) {
-					$('.close{{$single->id}}').on('click', function(c){
-						$('.cart-header{{$single->id}}').fadeOut('slow', function(c){
-							$('.cart-header{{$single->id}}').remove();
+					$('#{{$single->id}}re').on('click', function(c){
+						$('.cart-header {{$id}}').fadeOut('slow', function(c){
+							$('.cart-header {{$id}}').remove();
 							$.ajax({url: "/remove/"+{{$single->id}}, success: function(result){
 						    document.getElementById("total1").innerHTML=JSON.parse(result).price;
 								document.getElementById("total2").innerHTML=JSON.parse(result).price;
@@ -54,8 +55,8 @@
 
 			   </script>
 
-			 <div class="cart-header{{$single->id}}">
-				 <div class="close{{$single->id}}"> </div>
+			 <div class="cart-header {{$id}}">
+				 <div id="{{$single->id}}re" class="close{{$id++}}"> </div>
 				 <div class="cart-sec simpleCart_shelfItem">
 						<div class="cart-item cyc">
                <input name="id[]" value="{{$single->id}}" class="hidden">
