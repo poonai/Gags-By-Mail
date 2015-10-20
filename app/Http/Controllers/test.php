@@ -15,7 +15,11 @@ use Session;
 
 class test extends Controller
 {
-    //
+    //roductvi
+    function productview($id)
+    {
+      return view('singleproduct');
+    }
     function index()
     {
       return view('index',['loginfo'=>0,'placelogin'=>0]);
@@ -45,6 +49,7 @@ class test extends Controller
       $id=Session::get('id',array());
 
       $ordered_item=$request['id'];
+
       $item=array();
       foreach ($id as $value) {
         $value=item::find($value);
@@ -170,6 +175,7 @@ function myplaceorder(Request $request)
       print('Error: ' . $e->getMessage());
   }
 }
+
 function sucess($token)
 {
   $product_token=product_token::where('order_token',$return_key)->get();
@@ -216,5 +222,6 @@ catch (Exception $e) {
     print('Error: ' . $e->getMessage());
 }
     }
+
     //function anvena_da
 }

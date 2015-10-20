@@ -145,56 +145,70 @@ $('form').on('blur', 'input[type=number]', function (e) {
 		<h2>Victim Details</h2>
 		 <div class="registration_form">
 		 <!-- Form -->
-			<form id="registration_form" action="/victimplaceorder" method="post">
-        <input type="hidden" name="_token" value="<?php echo csrf_token(); ?>">
-        <input type="hidden" name="_token" value="{{$productid}}">
-				<div>
-					<label>
-						<input placeholder="Name:" type="name" tabindex="3" required>
-					</label>
-				</div>
 
-				<div>
-					<label>
-						<input placeholder="Contact Number" type="number" tabindex="3" required>
-					</label>
-				</div>
+     			<form id="registration_form" action="/myplaceorder" method="post">
 
-				<div>
-					<label>
-						<input placeholder="Address:" type="text" tabindex="4" required>
-					</label>
-				</div>
-				<div>
-					<label>
-						<input placeholder="Zip/Postal code" type="number" tabindex="4" required>
-					</label>
-				</div>
-				<div>
-					<label>
-						<input name="city" placeholder="City" type="text" tabindex="4" required>
-					</label>
-				</div>
 
-				<div>
-					<label>
-						<input name="state" placeholder="State" type="text" tabindex="4" required>
-					</label>
-				</div>
 
-				<div>
-					<label>
-						<input name="Personalized" placeholder="Please type your personalized message here" type="text" tabindex="4" required>
-					</label>
-				</div>
+     				<div>
+     					<label>
+                 <input type="hidden" name="_token" value="<?php echo csrf_token(); ?>">
+                 <input type="hidden" name="productid" value="">
+     						<input name="name" placeholder="Name:" type="text" tabindex="1" value="" required autofocus>
+     					</label>
+     				</div>
 
-				<div>
-					<input type="submit" value="sign in" id="register-submit">
-				</div>
-				<div class="forget">
-					<a href="#">forgot your password</a>
-				</div>
-			</form>
+     				<div>
+     					<label>
+
+     					</label>
+     				</div>
+
+     				<div>
+     					<label>
+     						<input name="address" placeholder="Address" type="text" tabindex="4" required>
+     					</label>
+     				</div>
+
+     				<div>
+     					<label>
+     						<input name="Contact Number" placeholder="Contact Number" type="number" tabindex="4" required>
+     					</label>
+     				</div>
+
+     				<div>
+     					<label>
+     						<input name="postalcode" placeholder="Zip/Postal code" type="number" tabindex="4" required>
+     					</label>
+     				</div>
+
+     				<div>
+     					<label>
+     						<input name="city" placeholder="City" type="text" tabindex="4" required>
+     					</label>
+     				</div>
+
+     				<div>
+     					<label>
+     						<input name="state" placeholder="State" type="text" tabindex="4" required>
+     					</label>
+     				</div>
+
+     				<div>
+     					<label>
+     						<input name="Personalized" placeholder="Please type your personalized message here" type="text" tabindex="4" required>
+     					</label>
+     				</div>
+     				<div>
+
+     				</div>
+     				<div>
+     					<input type="submit" value="create an account" id="register-submit">
+     				</div>
+     				<div class="sky-form">
+     					<label class="checkbox"><input type="checkbox" name="checkbox" ><i></i>i agree to shoppe.com &nbsp;<a class="terms" href="#"> terms of service</a> </label>
+     				</div>
+     			</form>
 			<!-- /Form -->
 			</div>
 	</div>

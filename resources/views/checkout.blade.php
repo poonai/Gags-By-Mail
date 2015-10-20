@@ -1,5 +1,21 @@
 @extends('header')
 @section('middle')
+<script>
+function itemremove(id)
+{
+	$("#"+id).remove();
+	$.ajax({url: "/remove/"+id, success: function(result){
+		document.getElementById("total1").innerHTML=JSON.parse(result).price;
+		document.getElementById("total2").innerHTML=JSON.parse(result).price;
+		document.getElementById("price").innerHTML=JSON.parse(result).price;
+		document.getElementById("simpleCart_quantity").innerHTML=JSON.parse(result).no;
+}});}
+function submit()
+{
+	document.getElementById('place').click();
+}
+
+</script>
 <div class="container">
 	<div class="check">
 			 <div class="col-md-3 cart-total">
@@ -57,27 +73,21 @@
 				 <table class="ui celled padded table">
 				   <thead>
 				     <tr><th class="single line">Item Name</th>
-				     <th>Effect</th>
-				     <th>Efficacy</th>
-				     <th>Consensus</th>
-				     <th>Comments</th>
+				     <th>price</th>
+
+				     <th>remove</th>
 				   </tr></thead>
 				   <tbody>
 						 @foreach($item as $single)
+						 <input class="hidden" name="id[]" value="{{$single->id}}">
 				     <tr id="{{$single->id}}">
 				       <td>
 				         <p class="ui center aligned">{{$single->name}}</p>
 				       </td>
 				       <td class="single line">
-				         Power Output
+				         {{$single->price}}
 				       </td>
-				       <td>
-				         <div class="ui star rating" data-rating="3" data-max-rating="3"></div>
-				       </td>
-				       <td class="right aligned">
-				         80% <br>
-				         <a href="#">18 studies</a>
-				       </td>
+				      
 				       <td><a onclick="itemremove({{$single->id}})" href="#">remove</a></td>
 				     </tr>
 				     @endforeach
@@ -119,20 +129,6 @@
    <div class="ui input">
 
 </div>
-<script>
-function itemremove(id)
-{
-	$("#"+id).remove();
-	$.ajax({url: "/remove/"+id, success: function(result){
-		document.getElementById("total1").innerHTML=JSON.parse(result).price;
-		document.getElementById("total2").innerHTML=JSON.parse(result).price;
-		document.getElementById("price").innerHTML=JSON.parse(result).price;
-		document.getElementById("simpleCart_quantity").innerHTML=JSON.parse(result).no;
-}
-function submit()
-{
-	document.getElementById('place').click();
-}
 
-</script>
+
 @endsection

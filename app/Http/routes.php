@@ -21,6 +21,8 @@ Route::get('/add/{id}','test@add');
 Route::get('/checkout/','test@checkout');
 Route::post('/checkout/','test@proceed');
 Route::get('/remove/{id}','test@remove');
+Route::get('/produc/{id}','test@productview');
 //Route::get('/instamojo/','test@anvena');
 Route::post('/myplaceorder/','test@myplaceorder');
 Route::get('sucess/{token}','test@sucess');
+Route::post('/victimplaceorder/','test@victimplaceorder');

@@ -17,11 +17,12 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 <link href="css/style.css" rel='stylesheet' type='text/css' />
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
 
-<link rel="stylesheet" href="semantic.css">
-<link rel="stylesheet" href="semantic.min.css">
-<link rel="stylesheet" href="owl-carousel/owl.theme.css">
-<link rel="stylesheet" href="owl-carousel/owl.carousel.css">
+<link rel="stylesheet"  type='text/css' href="semantic.css">
+<link rel="stylesheet"  type='text/css' href="semantic.min.css">
+<link rel="stylesheet"  type='text/css' href="owl-carousel/owl.theme.css">
+<link rel="stylesheet"  type='text/css' href="owl-carousel/owl.carousel.css">
 <!--  jQuery 1.7+  -->
+
 <script src=" owl-carousel/owl.carousel.js"></script>
 <script>
 $(document).ready(function() {
@@ -34,7 +35,8 @@ $(document).ready(function() {
       singleItem:true,
        autoPlay:true,
        navigation:false,
-       autoHeight:true
+       autoHeight:true,
+       autoWidth:false
       // "singleItem:true" is a shortcut for:
       // items : 1,
       // itemsDesktop : false,
@@ -80,6 +82,10 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <script src="js/menu_jquery.js"></script>
 
 <style>
+.parallax-window {
+  min-height: 400px;
+  background: transparent;
+}
 #owl-demo .item img{
     display: block;
     width: 100%;
@@ -179,7 +185,7 @@ This website is owned by Oye Happy and all the products, images, content, materi
 	<div class="header">
 	<div class="head-t">
 		<div class="logo">
-			<a href="index.html"><img src="images/logo.png" class="img-responsive" alt=""/> </a>
+			<h1 href="/">Gags By Mail </h1>
 		</div>
 		<!-- start header_right -->
 		<div class="header_right">
@@ -224,14 +230,14 @@ Log in before Placing order
 				</div>
 
 			<div class="cart box_1">
-				<a href="checkout.html">
+				<a href="/checkout">
 					<h3> <span id="price" class="simpleCart_total">RS.{{Session::get('price',0)}}</span> (<span id="simpleCart_quantity"  class="simpleCart_quantity">{{count(Session::get('id',array()))}}</span> items)<img src="images/bag.png" alt=""></h3>
 				</a>
 
 				<div class="clearfix"> </div>
 			</div>
 			<div class="create_btn">
-				<a href="checkout.html">CHECKOUT</a>
+				<a href="/checkout">CHECKOUT</a>
 			</div>
 			<div class="clearfix"> </div>
 		</div>
@@ -248,7 +254,7 @@ Log in before Placing order
 		<!-- start header menu -->
 		<ul class="megamenu skyblue">
 			<li class="active grid"><a class="color1" href="/">Home</a></li>
-			<li class="grid"><a class="color2" href="/product">Products</a>
+			<li class="grid"><a class="color2" href="/shop">Products</a>
 
 				</li>
 			<li><a class="color4" href="#">FAQ</a>
@@ -271,10 +277,10 @@ Log in before Placing order
   			<center><a class="ui medium header">Contact Us</a></center>
   		</div>
   		<div class="column">
-  		<center>	<a class="ui medium header"  onclick="modalb()">Terms</a></center>
+  		<center>	<a class="ui medium header" href="#"  onclick="modalb()">Terms</a></center>
   		</div>
   		<div class="column">
-  			<center><a class="ui medium header" onclick="modalc()">Disclaimer</a></center>
+  			<center><a class="ui medium header" href="#" onclick="modalc()">Disclaimer</a></center>
   		</div>
   	</div>
   </div>

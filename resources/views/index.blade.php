@@ -1,123 +1,47 @@
 @extends('header')
 @section('middle')
 @parent
-<div  id="owl-demo" class="container owl-carousel owl-theme">
+<script src="js/parallax.js"></script>
+ <script src="js/parallax.min.js"></script>
+<div style="margin-top:-1%;"  id="owl-demo" class="container owl-carousel owl-theme">
 
-  <div class="item"><img class="slider" src="chocolate.jpg" alt="The Last of us"></div>
-  <div class="item"><img class="slider" src="holi2.jpg" alt="GTA V"></div>
-  <div class="item"><img class="slider" src="maxresdefault.jpg" alt="Mirror Edge"></div>
+  <div class="item"><img class="slider" src="1.jpg" alt="The Last of us"></div>
+  <div class="item"><img class="slider" src="2.jpg" alt="GTA V"></div>
+  <div class="item"><img class="slider" src="3.jpg" alt="Mirror Edge"></div>
 
 </div>
-<div class="arriv">
-	<div class="container">
-		<div class="arriv-top">
-			<div class="col-md-6 arriv-left">
-				<img src="images/1.jpg" class="img-responsive" alt="">
-				<div class="arriv-info">
-					<h3>What is this?</h3>
-					<p>REVIVE YOUR WARDROBE WITH CHIC KNITS</p>
-					<div class="crt-btn">
-						<a href="details.html">TAKE A LOOK</a>
-					</div>
-				</div>
-			</div>
-			<div class="col-md-6 arriv-right">
-				<img src="images/2.jpg" class="img-responsive" alt="">
-				<div class="arriv-info">
-					<h3>TUXEDO</h3>
-					<p>REVIVE YOUR WARDROBE WITH CHIC KNITS</p>
-					<div class="crt-btn">
-						<a href="details.html">SHOP NOW</a>
-					</div>
-				</div>
-			</div>
-			<div class="clearfix"> </div>
-		</div>
-		<div class="arriv-bottm">
-			<div class="col-md-8 arriv-left1">
-				<img src="images/3.jpg" class="img-responsive" alt="">
-				<div class="arriv-info1">
-					<h3>SWEATER</h3>
-					<p>REVIVE YOUR WARDROBE WITH CHIC KNITS</p>
-					<div class="crt-btn">
-						<a href="details.html">SHOP NOW</a>
-					</div>
-				</div>
-			</div>
-			<div class="col-md-4 arriv-right1">
-				<img src="images/4.jpg" class="img-responsive" alt="">
-				<div class="arriv-info2">
-					<a href="details.html"><h3>Trekking Shoes<i class="ars"></i></h3></a>
-				</div>
-			</div>
-			<div class="clearfix"> </div>
-		</div>
-		<div class="arriv-las">
-			<div class="col-md-4 arriv-left2">
-				<img src="images/5.jpg" class="img-responsive" alt="">
-				<div class="arriv-info2">
-					<a href="details.html"><h3>Casual Glasses<i class="ars"></i></h3></a>
-				</div>
-			</div>
-			<div class="col-md-4 arriv-middle">
-				<img src="images/6.jpg" class="img-responsive" alt="">
-				<div class="arriv-info3">
-					<h3>FRESH LOOK T-SHIRT</h3>
-					<div class="crt-btn">
-						<a href="details.html">SHOP NOW</a>
-					</div>
-				</div>
-			</div>
-			<div class="col-md-4 arriv-right2">
-				<img src="images/7.jpg" class="img-responsive" alt="">
-				<div class="arriv-info2">
-					<a href="details.html"><h3>Elegant Watches<i class="ars"></i></h3></a>
-				</div>
-			</div>
-			<div class="clearfix"> </div>
-		</div>
-	</div>
+<div style=" padding-top:2%; padding-bottom: 2%;">
+   <h1 style="margin-top:2%; font-size:300%; " class="ui header huge aligned center">Who is this??</h1>
+   <p style="margin-left:5%;margin-right:5%; font-size:150%;">We at Gags By mail in spreading laughter and smiles with everyone. We believe in making harmless pranks and using them responsibly to have amazing memories that will stay with you forever.
+
+We anonymously package the most awesome yet annoying things one could receive through mail in an effort for you to have some fun also ruin your victim’s day.
+
+Just give us their address and name. We will take care of the rest.
+
+
+</p>
+   </div>
+   <div style="margin-top:5%;" class="parallax-window" data-parallax="scroll" data-image-src="1.jpg"></div>
+<div style="margin-top:5%; padding-bottom:40px;">
+       <h1 style="margin-top:2%; padding-bottom:5%;" class="ui header aligned center">Whom can you prank?</h1>
+     <div class="ui stackable grid">
+  <div class="four wide column"><center><i style="font-size:300%;" class="fa fa-users"></i>
+<br><h1>Friends</h1>
+<p style="font-size:150%;">it's said the most dearest of friends are worth of having fun with.it proves your love for them</p></center></div>
+  <div class="four wide column"><center><i style="font-size:300%;" class="fa fa-user-times"></i>
+  <br><h1>  Enemey</h1><p style="font-size:150%;">it's said the most dear kcdsljlsjdl kjdsksdj</p></center></div>
+  <div class="four wide column"><center><i style="font-size:300%;" class="fa fa-user-secret"></i>
+  <br><h1>antagonist</h1><p style="font-size:150%;">Always wanted to tell something but did't know how we stand ready to help you get sweet revenge</p></center></div>
+  <div class="four wide column"><center><i style="font-size:300%;" class="fa fa-users"></i>
+  <br><h1>Self</h1><p style="font-size:150%;">in case your really boared and want something exiting to happen in your life.ask us.we would be happy to prank you in the best possible way</p></center></div>
+</div></div>
+<div  class="ui equal width center aligned padded grid">
+
+<div class="row" style="background-color:#E9565C;color: #FFFFFF;">
+ <div style="padding-bottom:200px;" class="column"></div>
 </div>
-<div class="special">
-	<div class="container">
-		<h3>Special Offers</h3>
-		<div class="specia-top">
-			<ul class="grid_2">
-		<li>
-				<a href="details.html"><img src="images/8.jpg" class="img-responsive" alt=""></a>
-				<div class="special-info grid_1 simpleCart_shelfItem">
-					<h5>Lorem ipsum dolor</h5>
-					<div class="item_add"><span class="item_price"><h6>ONLY $40.00</h6></span></div>
-					<div class="item_add"><span class="item_price"><a href="#">add to cart</a></span></div>
-				</div>
-		</li>
-		<li>
-				<a href="details.html"><img src="images/9.jpg" class="img-responsive" alt=""></a>
-				<div class="special-info grid_1 simpleCart_shelfItem">
-					<h5>Consectetur adipis</h5>
-					<div class="item_add"><span class="item_price"><h6>ONLY $60.00</h6></span></div>
-					<div class="item_add"><span class="item_price"><a href="#">add to cart</a></span></div>
-			</div>
-		</li>
-		<li>
-				<a href="details.html"><img src="images/10.jpg" class="img-responsive" alt=""></a>
-				<div class="special-info grid_1 simpleCart_shelfItem">
-					<h5>Commodo consequat</h5>
-					<div class="item_add"><span class="item_price"><h6>ONLY $14.00</h6></span></div>
-					<div class="item_add"><span class="item_price"><a href="#">add to cart</a></span></div>
-			</div>
-		</li>
-		<li>
-				<a href="details.html"><img src="images/11.jpg" class="img-responsive" alt=""></a>
-				<div class="special-info grid_1 simpleCart_shelfItem">
-					<h5>Voluptate velit</h5>
-					<div class="item_add"><span class="item_price"><h6>ONLY $37.00</h6></span></div>
-					<div class="item_add"><span class="item_price"><a href="#">add to cart</a></span></div>
-				</div>
-		</li>
-		<div class="clearfix"> </div>
-	</ul>
-		</div>
-	</div>
+
 </div>
+
+
 @endsection
