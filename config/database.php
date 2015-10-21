@@ -26,7 +26,7 @@ return [
     |
     */
 
-    'default' =>'pgsql',
+    'default' => 'pgsql',
 
     /*
     |--------------------------------------------------------------------------
@@ -55,10 +55,10 @@ return [
 
         'mysql' => [
             'driver'    => 'mysql',
-            'host'      => '31.170.166.18',
-            'database'  => 'u939720237_larav',
-            'username'  => 'u939720237_schoo',
-            'password'  => 'b0y@street',
+            'host'      => env('DB_HOST', 'localhost'),
+            'database'  => env('DB_DATABASE', 'laravel'),
+            'username'  => env('DB_USERNAME', 'root'),
+            'password'  => env('DB_PASSWORD', 'toor'),
             'charset'   => 'utf8',
             'collation' => 'utf8_unicode_ci',
             'prefix'    => '',

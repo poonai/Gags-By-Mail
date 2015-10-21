@@ -16,6 +16,22 @@ use Session;
 class test extends Controller
 {
     //roductvi
+    function populate()
+    {
+      return view('populate');
+    }
+    function populate_item(Request $request)
+    {
+      $item=new item;
+      $item->name=$request['name'];
+      $item->shortline=$request['shortline'];
+      $item->bigline=$request['bigline'];
+      $item->spec1=$request['spec1'];
+      $item->spec2=$request['spec2'];
+      $item->url=$request['url'];
+      $item->save();
+      return redirect('/populate');
+    }
   function finaltry()
   {
     return view('final',['loginfo'=>0,'placelogin'=>0]);
