@@ -16,10 +16,10 @@ use Session;
 class test extends Controller
 {
     //roductvi
-    function productview($id)
-    {
-      return view('singleproduct');
-    }
+  function finaltry()
+  {
+    return view('final',['loginfo'=>0,'placelogin'=>0]);
+  }
     function index()
     {
       return view('index',['loginfo'=>0,'placelogin'=>0]);

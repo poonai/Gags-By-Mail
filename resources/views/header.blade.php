@@ -8,22 +8,24 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 <html>
 <head>
 <title>Gags By Mail</title>
-<link href="css/bootstrap.css" rel='stylesheet' type='text/css' />
+<link href="http://localhost:8000/css/bootstrap.css" rel='stylesheet' type='text/css' />
 <!-- jQuery (necessary JavaScript plugins) -->
-<script type='text/javascript' src="js/jquery-1.11.1.min.js"></script>
+<script type='text/javascript' src="http://localhost:8000/js/jquery-1.11.1.min.js"></script>
 <!-- Custom Theme files -->
-<script src="semantic.js"></script>
-<script src="semantic.min.js"></script>
-<link href="css/style.css" rel='stylesheet' type='text/css' />
+<script src="http://localhost:8000/semantic.js"></script>
+<script src="http://localhost:8000/semantic.min.js"></script>
+<link href="http://localhost:8000/css/style.css" rel='stylesheet' type='text/css' />
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
 
-<link rel="stylesheet"  type='text/css' href="semantic.css">
-<link rel="stylesheet"  type='text/css' href="semantic.min.css">
-<link rel="stylesheet"  type='text/css' href="owl-carousel/owl.theme.css">
-<link rel="stylesheet"  type='text/css' href="owl-carousel/owl.carousel.css">
+<link rel="stylesheet"  type='text/css' href="http://localhost:8000/semantic.css">
+<link rel="stylesheet"  type='text/css' href="http://localhost:8000/semantic.min.css">
+<link rel="stylesheet"  type='text/css' href="http://localhost:8000/owl-carousel/owl.theme.css">
+<link rel="stylesheet"  type='text/css' href="http://localhost:8000/owl-carousel/owl.carousel.css">
+<link rel="stylesheet" type='text/css' href="http://localhost:8000/css/orbit.css">
 <!--  jQuery 1.7+  -->
 
-<script src=" owl-carousel/owl.carousel.js"></script>
+<script src="http://localhost:8000/owl-carousel/owl.carousel.js"></script>
+<script src="http://localhost:8000/js/orbit.js"></script>
 <script>
 $(document).ready(function() {
 
@@ -36,7 +38,7 @@ $(document).ready(function() {
        autoPlay:true,
        navigation:false,
        autoHeight:true,
-       autoWidth:false
+       autoWidth:true
       // "singleItem:true" is a shortcut for:
       // items : 1,
       // itemsDesktop : false,
@@ -96,6 +98,17 @@ input[type=number]::-webkit-inner-spin-button,
 input[type=number]::-webkit-outer-spin-button {
     -webkit-appearance: none;
     margin: 0;
+}
+hr {
+    display: block;
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
+    margin-left: auto;
+    margin-right: auto;
+    border-style: solid;
+    border-width: 3px;
+    color:#E9565C;
+    width:5em;
 }
 </style>
 
@@ -193,7 +206,7 @@ This website is owned by Oye Happy and all the products, images, content, materi
 				<div class="log">
           @if(Session::get('loginfo',1))
 					<div class="login" >
-						<div id="loginContainer"><a href="#" id="loginButton"><span>Login</span></a> <div class="{{$loginfo?"":'hidden'}} ui pointing label">
+						<div id="loginContainer"><a href="#" id="loginButton"><span style="color:#000000">Login</span></a> <div class="{{$loginfo?"":'hidden'}} ui pointing label">
       Enter Valid Information
     </div>
     <div class="{{$placelogin?"":'hidden'}} ui pointing label red">
@@ -221,7 +234,7 @@ Log in before Placing order
 							</div>
 						</div>
             <div class="reg">
-    					<a href="/register">REGISTER</a>
+    					<a style="color:#000000" href="/register">REGISTER</a>
     				</div>
             @else
           	<div id="loginContainer"><a href="/logout"><span>Logout</span></a></div>
@@ -269,25 +282,37 @@ Log in before Placing order
 </div>
 </div>
 @yield('middle')
-
-  <div style="margin-top:2%;" class="container">
-  	<div class="ui three column  grid">
-  		 <div class="three column  row">
+<div style="background-color:#000000;height:4em">
+  <div  class="container">
+  	<div style="background-color:#000000;margin-top:0"  class="ui stackable grid">
+  		 <div class="six column  row">
   		<div class="column">
-  			<center><a class="ui medium header">Contact Us</a></center>
+  			<center><a style="color:#ffffff" class="ui medium header">Contact Us</a></center>
   		</div>
   		<div class="column">
-  		<center>	<a class="ui medium header" href="#"  onclick="modalb()">Terms</a></center>
+  		<center>	<a style="color:#ffffff" class="ui medium header" href="#"  onclick="modalb()">Terms</a></center>
   		</div>
   		<div class="column">
-  			<center><a class="ui medium header" href="#" onclick="modalc()">Disclaimer</a></center>
+  			<center><a style="color:#ffffff" class="ui medium header" href="#" onclick="modalc()">Disclaimer</a></center>
   		</div>
+      <div class="column">
+  			<center><a style="color:#ffffff" class="ui medium header">Privacy</a></center>
+  		</div>
+      <div class="column">
+        <center><a style="color:#ffffff" class="ui medium header">©2015 Gags By Mail</a></center>
+      </div>
+      <div class="column">
+        <center><a style="color:#ffffff" class="ui medium header">Follow Us <a style="color:#ffffff;margin-left:1%;"><i class="fa fa-facebook-official fa-2x"></i></a><a style="color:#ffffff;margin-left:1%;"><i class="fa fa-twitter fa-2x"></i>
+</a><a style="color:#ffffff"><i class="fa fa-instagram fa-2x"></i>
+</a>
+</a></center>
+      </div>
   	</div>
   </div>
-
-  	<div style="margin-top:3%;" class="clearfix"> </div>
+</div>
+  <!--	<div style="margin-top:3%;" class="clearfix"> </div>
   		<center><p>Copyrights © 2015 Gags By Mail</p></center>
-  </div>
+  </div>-->
 </div>
 <script>
 function addtocart(id)
@@ -305,6 +330,7 @@ function changevalue(price,no,id)
   document.getElementById(id).className = "ui disabled button ";
   document.getElementById(id).innerHTML ="Added";
 }
+$(document).ready(function(){$(".megamenu").megamenu();});
 </script>
 </body>
 </html>
