@@ -1,10 +1,4 @@
 <?php
-$url = parse_url(getenv("postgres://yppenbxbakwrgk:fp4ssYG96VeICsvYhZdOEzqqD8@ec2-54-225-199-108.compute-1.amazonaws.com:5432/da9jpf0tfck5qv"));
-
-$host = $url["host"];
-$username = $url["user"];
-$password = $url["pass"];
-$database = substr($url["path"], 1);
 
 return [
 
@@ -32,7 +26,7 @@ return [
     |
     */
 
-    'default' => env('DB_CONNECTION', 'pgsql'),
+    'default' =>'pgsql',
 
     /*
     |--------------------------------------------------------------------------
@@ -61,10 +55,10 @@ return [
 
         'mysql' => [
             'driver'    => 'mysql',
-            'host'      => env('DB_HOST', 'localhost'),
-            'database'  => env('DB_DATABASE', 'laravel'),
-            'username'  => env('DB_USERNAME', 'root'),
-            'password'  => env('DB_PASSWORD', 'toor'),
+            'host'      => '31.170.166.18',
+            'database'  => 'u939720237_larav',
+            'username'  => 'u939720237_schoo',
+            'password'  => 'b0y@street',
             'charset'   => 'utf8',
             'collation' => 'utf8_unicode_ci',
             'prefix'    => '',
@@ -73,10 +67,10 @@ return [
 
         'pgsql' => [
             'driver'   => 'pgsql',
-            'host'     => $host,
-            'database' => $database,
-            'username' => $username,
-            'password' => $password,
+            'host'     => 'ec2-54-225-199-108.compute-1.amazonaws.com',
+            'database' => 'da9jpf0tfck5qv',
+            'username' => 'yppenbxbakwrgk',
+            'password' => 'fp4ssYG96VeICsvYhZdOEzqqD8',
             'charset'  => 'utf8',
             'prefix'   => '',
             'schema'   => 'public',
