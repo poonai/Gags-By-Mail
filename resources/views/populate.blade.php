@@ -8,6 +8,7 @@
                 <input type="text" name="url" placeholder="url">
                     <input type="text" name="spec1" placeholder="spec1">
                         <input type="text" name="spec2" placeholder="spec2">
+                        <input type="text" name="price" placeholder="price">
                         <input type="submit">
 
   </form>

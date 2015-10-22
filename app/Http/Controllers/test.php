@@ -29,6 +29,9 @@ class test extends Controller
       $item->spec1=$request['spec1'];
       $item->spec2=$request['spec2'];
       $item->detail="summa";
+      $item->price=$request['price'];
+      $item->created_at="2015-10-21 10:23:10";
+      $item->updated_at="2015-10-21 10:23:10";
       $item->url=$request['url'];
       $item->save();
       return redirect('/populate');
