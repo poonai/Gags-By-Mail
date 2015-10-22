@@ -4,7 +4,7 @@
 @endsection
 @section('middle')
 
-<div style="margin-top:2%;" class="ui two column centered grid">
+<div style="margin-top:2%;" class="ui stackable two column centered grid">
 
   <div style="margin-left:8%;" class="three column centered row">
    @foreach($item as $single)
@@ -14,11 +14,11 @@
 			    <img src="{{$single->url}}">
 			  </div>
 			  <div class="content">
-			    <a class="header">{{$single->name}}</a>
+			    <a class="header" href="/finaltry/{{$single->id}}">{{$single->name}}</a>
 			    <div class="meta">
 			      <span class="date">{{$single->shortline}}</span>
 			    </div>
-			    
+
 			  </div>
 			  <div class="extra content">
 			    <a>

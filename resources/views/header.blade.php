@@ -8,24 +8,24 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 <html>
 <head>
 <title>Gags By Mail</title>
-<link href="css/bootstrap.css" rel='stylesheet' type='text/css' />
+<link href="http://localhost:8000/css/bootstrap.css" rel='stylesheet' type='text/css' />
 <!-- jQuery (necessary JavaScript plugins) -->
-<script type='text/javascript' src="js/jquery-1.11.1.min.js"></script>
+<script type='text/javascript' src="http://localhost:8000/js/jquery-1.11.1.min.js"></script>
 <!-- Custom Theme files -->
-<script src="semantic.js"></script>
-<script src="semantic.min.js"></script>
-<link href="css/style.css" rel='stylesheet' type='text/css' />
+<script src="http://localhost:8000/js/semantic.js"></script>
+<script src="http://localhost:8000/js/semantic.min.js"></script>
+<link href="http://localhost:8000/css/style.css" rel='stylesheet' type='text/css' />
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
 
-<link rel="stylesheet"  type='text/css' href="semantic.css">
-<link rel="stylesheet"  type='text/css' href="semantic.min.css">
-<link rel="stylesheet"  type='text/css' href="owl-carousel/owl.theme.css">
-<link rel="stylesheet"  type='text/css' href="owl-carousel/owl.carousel.css">
-<link rel="stylesheet" type='text/css' href="css/orbit.css">
+<link rel="stylesheet"  type='text/css' href="http://localhost:8000/css/semantic.css">
+<link rel="stylesheet"  type='text/css' href="http://localhost:8000/css/semantic.min.css">
+<link rel="stylesheet"  type='text/css' href="http://localhost:8000/owl-carousel/owl.theme.css">
+<link rel="stylesheet"  type='text/css' href="http://localhost:8000/owl-carousel/owl.carousel.css">
+<link rel="stylesheet" type='text/css' href="http://localhost:8000/css/orbit.css">
 <!--  jQuery 1.7+  -->
 
-<script src="owl-carousel/owl.carousel.js"></script>
-<script src="js/orbit.js"></script>
+<script src="http://localhost:8000/owl-carousel/owl.carousel.js"></script>
+<script src="http://localhost:8000/js/orbit.js"></script>
 <script>
 $(document).ready(function() {
 
@@ -67,6 +67,24 @@ function modalc()
   .modal('show')
 ;
 }
+function updatePrice(container, n) {
+	//container -> each one of the $('.cd-gallery').children('li')
+	//n -> index of the selected item in the .cd-item-wrapper
+	var priceTag = container.find('.cd-price'),
+		selectedItem = container.find('.cd-item-wrapper li').eq(n);
+	if( selectedItem.data('sale') ) {
+		// if item is on sale - cross old price and add new one
+		priceTag.addClass('on-sale');
+		var newPriceTag = ( priceTag.next('.cd-new-price').length > 0 ) ? priceTag.next('.cd-new-price') : $('<em class="cd-new-price"></em>').insertAfter(priceTag);
+		newPriceTag.text(selectedItem.data('price'));
+		setTimeout(function(){ newPriceTag.addClass('is-visible'); }, 100);
+	} else {
+		// if item is not on sale - remove cross on old price and sale price
+		priceTag.removeClass('on-sale').next('.cd-new-price').removeClass('is-visible').on('webkitTransitionEnd otransitionend oTransitionEnd msTransitionEnd transitionend', function(){
+			priceTag.next('.cd-new-price').remove();
+		});
+	}
+}
 </script>
 <!-- Custom Theme files -->
 <!--//theme-style-->
@@ -78,10 +96,10 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <link href='http://fonts.googleapis.com/css?family=Roboto:400,100,300,500,700,900' rel='stylesheet' type='text/css'>
 <link href='http://fonts.googleapis.com/css?family=Playfair+Display:400,700,900' rel='stylesheet' type='text/css'>
 <!-- start menu -->
-<link href="css/megamenu.css" rel="stylesheet" type="text/css" media="all" />
-<script type="text/javascript" src="js/megamenu.js"></script>
+<link href="http://localhost:8000/css/megamenu.css" rel="stylesheet" type="text/css" media="all" />
+<script type="text/javascript" src="http://localhost:8000/js/megamenu.js"></script>
 <script>$(document).ready(function(){$(".megamenu").megamenu();});</script>
-<script src="js/menu_jquery.js"></script>
+<script src="http://localhost:8000/js/menu_jquery.js"></script>
 
 <style>
 .parallax-window {
@@ -109,6 +127,65 @@ hr {
     border-width: 3px;
     color:#E9565C;
     width:5em;
+}
+.cd-item-wrapper li {
+  position: absolute;
+  top: 0;
+  left: 25%;
+  width: 50%;
+  opacity: 0;
+  transform: translateX(200%) scale(0.7);
+}
+.cd-item-wrapper li.selected {
+  /* selected item */
+  position: relative;
+  opacity: 1;
+  transform: translateX(0) scale(1.3);
+}
+.cd-item-wrapper li.move-right {
+  /* item on right - preview visible */
+  transform: translateX(100%) scale(0.7);
+  opacity: 0.3;
+}
+.cd-item-wrapper li.move-left {
+  /* item on left - preview visible */
+  transform: translateX(-100%) scale(0.7);
+  opacity: 0.3;
+}
+.cd-item-wrapper li.hide-left {
+  /* items hidden on the left */
+  transform: translateX(-200%) scale(0.7);
+}
+@media only screen and (min-width: 1048px) {
+  .cd-item-wrapper li.move-left,
+  .cd-item-wrapper li.move-right {
+    /* hide preview items */
+    opacity: 0;
+  }
+  .cd-item-wrapper li.focus-on-left {
+    /* class added to the .selected and .move-right items when user hovers over the .move-left item (item preview on the left) */
+    transform: translateX(3%) scale(1.25);
+  }
+  .cd-item-wrapper li.focus-on-left.move-right {
+    transform: translateX(103%) scale(0.7);
+  }
+  .cd-item-wrapper li.focus-on-right {
+    /* class added to the .selected and .move-left items when user hovers over the .move-right item (item preview on the right) */
+    transform: translateX(-3%) scale(1.25);
+  }
+  .cd-item-wrapper li.focus-on-right.move-left {
+    transform: translateX(-103%) scale(0.7);
+  }
+  .cd-item-wrapper li.hover {
+    /* class added to the preview items (.move-left or .move-right) when user hovers over them */
+    opacity: 1;
+  }
+  .cd-item-wrapper li.hover.move-left {
+    transform: translateX(-97%) scale(0.75);
+  }
+  .cd-item-wrapper li.hover.move-right {
+    transform: translateX(97%) scale(0.75);
+  }
 }
 </style>
 

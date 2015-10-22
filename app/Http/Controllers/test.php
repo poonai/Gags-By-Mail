@@ -178,7 +178,7 @@ function myplaceorder(Request $request)
   $return_key=md5($token.rand());
   $order_token->order_token=$return_key;
   $order_token->save();
-  $api = new Instamojo('494fa9c31404f789b9ba86de7fb94480', 'eefb9b6c0114e18126349b73ecab8310');
+  $api = new Instamojo('b0702bd721ad77f700aa98e4b5a8832a', 'aec9d4a72e40263ea010f35beae47f96');
         try {
       $response = $api->linkCreate(array(
           'title'=>'Gags By Mail',
@@ -228,7 +228,7 @@ function chellam($token)
     function anvena($token)
     {
 
-$api = new Instamojo('494fa9c31404f789b9ba86de7fb94480', 'eefb9b6c0114e18126349b73ecab8310');
+$api = new Instamojo('b0702bd721ad77f700aa98e4b5a8832a', 'aec9d4a72e40263ea010f35beae47f96');
       try {
     $response = $api->linkCreate(array(
         'title'=>'Hello API',
