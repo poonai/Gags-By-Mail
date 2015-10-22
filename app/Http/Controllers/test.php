@@ -28,13 +28,15 @@ class test extends Controller
       $item->bigline=$request['bigline'];
       $item->spec1=$request['spec1'];
       $item->spec2=$request['spec2'];
+      $item->detail="summa";
       $item->url=$request['url'];
       $item->save();
       return redirect('/populate');
     }
-  function finaltry()
+  function finaltry($id)
   {
-    return view('final',['loginfo'=>0,'placelogin'=>0]);
+    $item=item::find($id);
+    return view('final',['loginfo'=>0,'placelogin'=>0,'item'=>$item]);
   }
     function index()
     {

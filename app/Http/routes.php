@@ -26,6 +26,6 @@ Route::get('/remove/{id}','test@remove');
 Route::post('/myplaceorder/','test@myplaceorder');
 Route::get('sucess/{token}','test@sucess');
 Route::post('/victimplaceorder/','test@victimplaceorder');
-Route::get('/finaltry/','test@finaltry');
+Route::get('/finaltry/{id}','test@finaltry');
 Route::get('/populate/','test@populate');
 Route::post('/populate/','test@populate_item');
