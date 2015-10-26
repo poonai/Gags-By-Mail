@@ -26,7 +26,7 @@ $('form').on('blur', 'input[type=number]', function (e) {
   <center> <div class="ui buttons">
     <button class="ui button" onclick="victim()">My PLace</button>
     <div class="or"></div>
-    <button class="ui positive button" onclick="myplace()">Victum Place</button>
+    <button class="ui button" onclick="myplace()">Victim Place</button>
     <div class="main">
 </div></center>
 
@@ -74,7 +74,7 @@ $('form').on('blur', 'input[type=number]', function (e) {
 		 <div class="registration_form">
 		 <!-- Form -->
 
-			<form id="registration_form" action="/myplaceorder" method="post">
+			<form class="ui form" id="registration_form" action="/myplaceorder" method="post">
 
 
 
@@ -132,11 +132,9 @@ $('form').on('blur', 'input[type=number]', function (e) {
 
 				</div>
 				<div>
-					<input type="submit" value="create an account" id="register-submit">
+					<input type="submit" value="Place Order" id="register-submit">
 				</div>
-				<div class="sky-form">
-					<label class="checkbox"><input type="checkbox" name="checkbox" ><i></i>i agree to shoppe.com &nbsp;<a class="terms" href="#"> terms of service</a> </label>
-				</div>
+
 			</form>
 			<!-- /Form -->
 		</div>
@@ -146,7 +144,7 @@ $('form').on('blur', 'input[type=number]', function (e) {
 		 <div class="registration_form">
 		 <!-- Form -->
 
-     			<form id="registration_form" action="/myplaceorder" method="post">
+     			<form class="ui form" id="registration_form" action="/myplaceorder" method="post">
 
 
 
@@ -203,11 +201,9 @@ $('form').on('blur', 'input[type=number]', function (e) {
 
      				</div>
      				<div>
-     					<input type="submit" value="create an account" id="register-submit">
+     					<input type="submit" value="Place Order" id="register-submit">
      				</div>
-     				<div class="sky-form">
-     					<label class="checkbox"><input type="checkbox" name="checkbox" ><i></i>i agree to shoppe.com &nbsp;<a class="terms" href="#"> terms of service</a> </label>
-     				</div>
+
      			</form>
 			<!-- /Form -->
 			</div>

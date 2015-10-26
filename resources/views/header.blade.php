@@ -8,24 +8,24 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 <html>
 <head>
 <title>Gags By Mail</title>
-<link href="http://localhost:8000/css/bootstrap.css" rel='stylesheet' type='text/css' />
+<link href="css/bootstrap.css" rel='stylesheet' type='text/css' />
 <!-- jQuery (necessary JavaScript plugins) -->
-<script type='text/javascript' src="http://localhost:8000/js/jquery-1.11.1.min.js"></script>
+<script type='text/javascript' src="js/jquery-1.11.1.min.js"></script>
 <!-- Custom Theme files -->
-<script src="http://localhost:8000/js/semantic.js"></script>
-<script src="http://localhost:8000/js/semantic.min.js"></script>
-<link href="http://localhost:8000/css/style.css" rel='stylesheet' type='text/css' />
+<script src="js/semantic.js"></script>
+<script src="js/semantic.min.js"></script>
+<link href="/css/style.css" rel='stylesheet' type='text/css' />
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
 
-<link rel="stylesheet"  type='text/css' href="http://localhost:8000/css/semantic.css">
-<link rel="stylesheet"  type='text/css' href="http://localhost:8000/css/semantic.min.css">
-<link rel="stylesheet"  type='text/css' href="http://localhost:8000/owl-carousel/owl.theme.css">
-<link rel="stylesheet"  type='text/css' href="http://localhost:8000/owl-carousel/owl.carousel.css">
-<link rel="stylesheet" type='text/css' href="http://localhost:8000/css/orbit.css">
+<link rel="stylesheet"  type='text/css' href="css/semantic.css">
+<link rel="stylesheet"  type='text/css' href="css/semantic.min.css">
+<link rel="stylesheet"  type='text/css' href="owl-carousel/owl.theme.css">
+<link rel="stylesheet"  type='text/css' href="owl-carousel/owl.carousel.css">
+<link rel="stylesheet" type='text/css' href="css/orbit.css">
 <!--  jQuery 1.7+  -->
 
-<script src="http://localhost:8000/owl-carousel/owl.carousel.js"></script>
-<script src="http://localhost:8000/js/orbit.js"></script>
+<script src="owl-carousel/owl.carousel.js"></script>
+<script src="js/orbit.js"></script>
 <script>
 $(document).ready(function() {
 

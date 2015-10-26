@@ -11,7 +11,7 @@
 						<ul id="etalage">
 
 								<a href="optionallink.html">
-									<img class="etalage_thumb_image" src="http://localhost:8000/{{$item->url}}" class="img-responsive" />
+									<img class="etalage_thumb_image" src="http://powerful-island-6473.herokuapp.com/{{$item->url}}" class="img-responsive" />
 
 								</a>
 
