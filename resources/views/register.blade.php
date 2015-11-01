@@ -1,132 +1,91 @@
 @extends('header')
 <!-- content -->
 @section('middle')
-<div class="container">
-<div class="main">
-	<!-- start registration -->
-	<div class="registration">
-		<div class="registration_left">
-		<h2>new user? <span> create an account </span></h2>
-		<!-- [if IE]
-		    < link rel='stylesheet' type='text/css' href='ie.css'/>
-		 [endif] -->
+  <div id="heading-breadcrumbs">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-7">
+                        <h1>New account / Sign in</h1>
+                    </div>
+                    <div class="col-md-5">
+                        <ul class="breadcrumb">
+                            <li><a href="index.html">Home</a>
+                            </li>
+                            <li>New account / Sign in</li>
+                        </ul>
 
-		<!-- [if lt IE 7]>
-		    < link rel='stylesheet' type='text/css' href='ie6.css'/>
-		<! [endif] -->
-		<script>
-			(function() {
+                    </div>
+                </div>
+            </div>
+        </div>
 
-			// Create input element for testing
-			var inputs = document.createElement('input');
+        <div id="content">
+            <div class="container">
 
-			// Create the supports object
-			var supports = {};
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="box">
+                            <h2 class="text-uppercase">New account</h2>
 
-			supports.autofocus   = 'autofocus' in inputs;
-			supports.required    = 'required' in inputs;
-			supports.placeholder = 'placeholder' in inputs;
+                            <p class="lead">Not our registered customer yet?</p>
+                            <p>With registration with us new world of fashion, fantastic discounts and much more opens to you! The whole process will not take you more than a minute!</p>
+                            <p class="text-muted">If you have any questions, please feel free to <a href="contact.html">contact us</a>, our customer service center is working for you 24/7.</p>
 
-			// Fallback for autofocus attribute
-			if(!supports.autofocus) {
+                            <hr>
 
-			}
+                            <form action="customer-orders.html" method="post">
+                                <div class="form-group">
+                                    <label for="name-login">Name</label>
+                                    <input type="text" class="form-control" id="name-login">
+                                </div>
+                                <div class="form-group">
+                                    <label for="email-login">Email</label>
+                                    <input type="text" class="form-control" id="email-login">
+                                </div>
+                                <div class="form-group">
+                                    <label for="password-login">Password</label>
+                                    <input type="password" class="form-control" id="password-login">
+                                    <label style="margin-top:1%;">
+      <input type="checkbox"> I Accept Terms And Condition
+    </label>
+                                </div>
+                                <div class="text-center">
+                                    <button type="submit" class="btn btn-template-main"><i class="fa fa-user-md"></i> Register</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
 
-			// Fallback for required attribute
-			if(!supports.required) {
+                    <div class="col-md-6">
+                        <div class="box">
+                            <h2 class="text-uppercase">Login</h2>
 
-			}
+                            <p class="lead">Already our customer?</p>
+                            <p class="text-muted">Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean
+                                ultricies mi vitae est. Mauris placerat eleifend leo.</p>
 
-			// Fallback for placeholder attribute
-			if(!supports.placeholder) {
+                            <hr>
 
-			}
+                            <form action="customer-orders.html" method="post">
+                                <div class="form-group">
+                                    <label for="email">Email</label>
+                                    <input type="text" class="form-control" id="email">
+                                </div>
+                                <div class="form-group">
+                                    <label for="password">Password</label>
+                                    <input type="password" class="form-control" id="password">
+                                </div>
+                                <div class="text-center">
+                                    <button type="submit" class="btn btn-template-main"><i class="fa fa-sign-in"></i> Log in</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
 
-			// Change text inside send button on submit
-			var send = document.getElementById('register-submit');
-			if(send) {
-				send.onclick = function () {
-					this.innerHTML = '...Sending';
-				}
-			}
+                </div>
+                <!-- /.row -->
 
-		})();
-		</script>
-		 <div class="registration_form">
-		 <!-- Form -->
-			<form id="registration_form" action="/register" method="post">
-
-
-<input type="hidden" name="_token" value="<?php echo csrf_token(); ?>">
-				<div>
-					<label>
-						<input name="name" placeholder="first name:" type="text" tabindex="1" required autofocus>
-					</label>
-				</div>
-
-				<div>
-					<label>
-						<input name="mail" placeholder="email address:" style="text-transform: lowercase;" type="email" tabindex="3" required>
-            <div class="{{$lable?"ui pointing label red":"hidden"}}">
-     email already taken
-   </div>
-					</label>
-				</div>
-				<div class="sky-form">
-					<div class="sky_form1">
-						<ul>
-							<li><label class="radio left"><input type="radio" name="radio" checked=""><i></i>Male</label></li>
-							<li><label class="radio"><input type="radio" name="radio"><i></i>Female</label></li>
-							<div class="clearfix"></div>
-						</ul>
-					</div>
-				</div>
-				<div>
-					<label>
-						<input name="password" placeholder="password" type="password" tabindex="4" required>
-					</label>
-				</div>
-				<div>
-
-				</div>
-				<div>
-					<input type="submit" value="create an account" id="register-submit">
-				</div>
-				<div class="sky-form">
-					<label class="checkbox"><input type="checkbox" name="checkbox" ><i></i>i agree to shoppe.com &nbsp;<a class="terms" href="#"> terms of service</a> </label>
-				</div>
-			</form>
-			<!-- /Form -->
-		</div>
-	</div>
-	<div class="hidden registration_left">
-		<h2>existing user</h2>
-		 <div class="registration_form">
-		 <!-- Form -->
-			<form id="registration_form" action="contact.php" method="post">
-				<div>
-					<label>
-						<input placeholder="email:" type="email" tabindex="3" required>
-					</label>
-				</div>
-				<div>
-					<label>
-						<input placeholder="password" type="password" tabindex="4" required>
-					</label>
-				</div>
-				<div>
-					<input type="submit" value="sign in" id="register-submit">
-				</div>
-				<div class="forget">
-					<a href="#">forgot your password</a>
-				</div>
-			</form>
-			<!-- /Form -->
-			</div>
-	</div>
-	<div class="clearfix"></div>
-	</div>
-	<!-- end registration -->
-</div>
-</div>
+            </div>
+            <!-- /.container -->
+        </div>
 @endsection
