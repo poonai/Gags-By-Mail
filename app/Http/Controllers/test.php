@@ -36,11 +36,10 @@ class test extends Controller
       $item->save();
       return redirect('/populate');
     }
-  function finaltry($id)
-  {
-    $item=item::find($id);
-    return view('final',['loginfo'=>0,'placelogin'=>0,'item'=>$item]);
-  }
+    function detail_pro($id)
+    {
+      return view('detail_pro',['item'=>item::find($id)]);
+    }
     function index()
     {
       return view('index',['loginfo'=>0,'placelogin'=>0]);
@@ -65,6 +64,8 @@ class test extends Controller
           }
         return view('checkout',['lable'=>0,'loginfo'=>0,'id'=>Session::get('id',array()),'item'=>$item,'placelogin'=>0]);
     }
+    
+ 
     function proceed(Request $request)
     {
       $id=Session::get('id',array());
@@ -119,14 +120,15 @@ echo json_encode($response);
       array_push($ids,$id);
       Session::put('id',$ids);
       Session::put('price',$price);
-      echo json_encode(array('no'=>count($ids),'price'=>$price));
+      echo "added";
+     
     }
     function registerdb(Request $request)
     {
       $user=new user;
       if($user->where('email',$request['mail'])->count())
       {
-        return view('register',['lable'=>1,'loginfo'=>0]);
+        return view('register',['error'=>1]);
       }
       else {
         $user->name=$request['name'];
@@ -158,7 +160,7 @@ echo json_encode($response);
          return redirect('/');
        }
        else {
-               return view('index',['loginfo'=>1]);
+               return view('index',['invalid'=>1]);
        }
     }
 }
@@ -228,7 +230,7 @@ function chellam($token)
     function anvena($token)
     {
 
-$api = new Instamojo('b0702bd721ad77f700aa98e4b5a8832a', 'aec9d4a72e40263ea010f35beae47f96');
+ $api = new Instamojo('b0702bd721ad77f700aa98e4b5a8832a', 'aec9d4a72e40263ea010f35beae47f96');
       try {
     $response = $api->linkCreate(array(
         'title'=>'Hello API',

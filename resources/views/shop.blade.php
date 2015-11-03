@@ -1,42 +1,54 @@
 @extends('header')
-@section('script')
 
-@endsection
 @section('middle')
 
-<div style="margin-top:2%;" class="ui stackable two column centered grid">
+    <div id="heading-breadcrumbs">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-7">
+                        <h1>Our PRODUCTS</h1>
+                    </div>
+                    <div class="col-md-5">
+                        <ul class="breadcrumb">
+                            <li><a href="index.html">Home</a>
+                            </li>
+                            <li>Category full</li>
+                        </ul>
 
-  <div style="margin-left:8%;" class="three column centered row">
-   @foreach($item as $single)
-    <div style="margin-top:2%;" class="column">
-			<div class="ui card">
-			  <div class="image">
-			    <img src="{{$single->url}}">
-			  </div>
-			  <div class="content">
-			    <a class="header" href="/finaltry/{{$single->id}}">{{$single->name}}</a>
-			    <div class="meta">
-			      <span class="date">{{$single->shortline}}</span>
-			    </div>
+                    </div>
+                </div>
+            </div>
+        </div>
 
-			  </div>
-			  <div class="extra content">
-			    <a>
-			      RS.{{$single->price}}
+        <div id="content">
+            <div class="container">
+     
 
-			    </a>
-          @if(in_array($single->id,Session::get('id',array())))
-          <button id={{$single->id}} class="ui disabled violet button" onclick="addtocart({{$single->id}})"></i>Added</button>
-          @else
-            <button id={{$single->id}} class="ui  violet button" onclick="addtocart({{$single->id}})"><i class="fa fa-shopping-cart"></i>Added</button>
-            @endif
-			  </div>
-			</div>
-		</div>
-    @endforeach
+                <div class="row products">
+                    @foreach($item as $single)
+                    <div class="col-md-3 col-sm-4">
+                        <div class="product">
+                            <div class="image">
+                                <a href="shop-detail.html">
+                                    <img src="{{$single->url}}" alt="" class="img-responsive image1">
+                                </a>
+                            </div>
+                            <!-- /.image -->
+                            <div class="text">
+                                <h3><a href="/detail_pro/{{$single->id}}">{{$single->name}}</a></h3>
+                                <p class="price">&#8377;{{$single->price}}</p>
+                                <p class="buttons">
+                                    <a href="" class="btn btn-default">View detail</a>
+                                    <a href="" class="btn btn-template-main"><i class="fa fa-shopping-cart"></i>Add to cart</a>
+                                </p>
+                            </div>
+                            <!-- /.text -->
+                        </div>
+                        <!-- /.product -->
+                    </div>
+                @endforeach
 
-
-  </div>
-</div>
-
+                   
+                    <!-- /.col-md-4 -->
+                </div>
 @endsection

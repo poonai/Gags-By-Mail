@@ -1,6 +1,17 @@
 @extends('header')
 <!-- content -->
 @section('middle')
+<script type="text/javascript">
+	function check(form)
+	{
+         if(!form.terms.checked)
+         {
+         	  alert("Accept terms and Condition");
+         	return false;
+         }
+         return true;
+	}
+</script>
   <div id="heading-breadcrumbs">
             <div class="container">
                 <div class="row">
@@ -33,20 +44,28 @@
 
                             <hr>
 
-                            <form action="customer-orders.html" method="post">
+                            <form action="/register" onsubmit="return check(this)" method="post">
+                                {!! csrf_field() !!}
                                 <div class="form-group">
                                     <label for="name-login">Name</label>
-                                    <input type="text" class="form-control" id="name-login">
+                                    <input type="text" name="name" class="form-control" id="name-login" required>
                                 </div>
-                                <div class="form-group">
+                              
+                                @if(isset($error) ? $error :  0)
+                                  <div class="form-group has-error">
+                                 <label for="email-login">Already taken Email</label>
+                                    <input type="text" name="mail" class="form-control" id="email-login" required>
+                                    @else
+                                    <div class="form-group ">
                                     <label for="email-login">Email</label>
-                                    <input type="text" class="form-control" id="email-login">
+                                    <input type="text" name="mail" class="form-control" id="email-login" required>
+                                    @endif
                                 </div>
                                 <div class="form-group">
                                     <label for="password-login">Password</label>
-                                    <input type="password" class="form-control" id="password-login">
+                                    <input type="password" name="password" class="form-control" id="password-login" required>
                                     <label style="margin-top:1%;">
-      <input type="checkbox"> I Accept Terms And Condition
+      <input id="ck" name="terms" type="checkbox" required> I Accept Terms And Condition
     </label>
                                 </div>
                                 <div class="text-center">
@@ -66,14 +85,15 @@
 
                             <hr>
 
-                            <form action="customer-orders.html" method="post">
+                            <form action="/login" method="post">
                                 <div class="form-group">
+                                    {!! csrf_field() !!}
                                     <label for="email">Email</label>
-                                    <input type="text" class="form-control" id="email">
+                                    <input type="text" class="form-control" id="email" required>
                                 </div>
                                 <div class="form-group">
                                     <label for="password">Password</label>
-                                    <input type="password" class="form-control" id="password">
+                                    <input type="password" class="form-control" id="password" required>
                                 </div>
                                 <div class="text-center">
                                     <button type="submit" class="btn btn-template-main"><i class="fa fa-sign-in"></i> Log in</button>

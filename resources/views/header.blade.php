@@ -18,13 +18,13 @@
     <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
 
     <!-- Css animations  -->
-    <link href="css/animate.css" rel="stylesheet">
+    <link href="{{URL::asset('css/animate.css')}}" rel="stylesheet">
 
     <!-- Theme stylesheet, if possible do not edit this stylesheet -->
-    <link href="css/style.default.css" rel="stylesheet" id="theme-stylesheet">
+    <link href="{{URL::asset('css/style.default.css')}}" rel="stylesheet" id="theme-stylesheet">
 
     <!-- Custom stylesheet - for your changes -->
-    <link href="css/custom.css" rel="stylesheet">
+    <link href="{{URL::asset('css/custom.css')}}" rel="stylesheet">
 
     <!-- Responsivity for older IE -->
     <!--[if lt IE 9]>
@@ -48,6 +48,27 @@
     <link href="css/owl.theme.css" rel="stylesheet">
    
 </head>
+ <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    <script>
+        window.jQuery || document.write('<script src="js/jquery-1.11.0.min.js"><\/script>')
+    </script>
+<script type="text/javascript">
+
+          function add(id)
+    {
+       
+          $.ajax({url: "/add/"+id, success: function(result){
+    
+ document.getElementById("chan").className="btn btn-template-main btn-lg disabled";
+ document.getElementById("chan").innerHTML="Added to Cart";
+    }});
+      }
+ function d()
+ {
+ //$('#t').remove();
+   $("#t").remove();
+}
+</script>
 
 <body>
 
@@ -74,7 +95,19 @@ _________________________________________________________ -->
                             </div>
 
                             <div class="login">
-                                <a href="#" data-toggle="modal" data-target="#login-modal"><i class="fa fa-sign-in"></i> <span class="hidden-xs text-uppercase">Sign in</span></a>
+
+                            @if(Session::get('loginfo',1))
+                              @if( isset($invalid) ? $invalid :  0)
+                                <a href="#" data-toggle="modal" data-target="#login-modal"><i class="fa fa-sign-in"></i> <span class="hidden-xs text-uppercase">Sign in</span><span class="label label-danger"> Invaid Credential</span></a>
+                                @elseif(isset($placelogin)?$placelogin :  0 )
+                                <a href="#" data-toggle="modal" data-target="#login-modal"><i class="fa fa-sign-in"></i> <span class="hidden-xs text-uppercase">Sign in</span><span class="label label-danger"> Login before placing order</span></a>
+                                  @else
+
+                                  <a href="#" data-toggle="modal" data-target="#login-modal"><i class="fa fa-sign-in"></i> <span class="hidden-xs text-uppercase">Sign in</span></a>
+                                  @endif
+                                @else
+                                 <a href="/logout"><i class="fa fa-sign-in"></i> <span class="hidden-xs text-uppercase">Log out</span></a>
+                                 @endif
                                 <a href="customer-register.html"><i class="fa fa-user"></i> <span class="hidden-xs text-uppercase">Sign up</span></a>
                             </div>
 
@@ -173,12 +206,13 @@ _________________________________________________________ -->
                         <h4 class="modal-title" id="Login">Customer login</h4>
                     </div>
                     <div class="modal-body">
-                        <form action="customer-orders.html" method="post">
+                        <form action="/login" method="post">
+                        {!! csrf_field() !!}
                             <div class="form-group">
-                                <input type="text" class="form-control" id="email_modal" placeholder="email">
+                                <input type="text" name="mail" class="form-control" id="email_modal" placeholder="email">
                             </div>
                             <div class="form-group">
-                                <input type="password" class="form-control" id="password_modal" placeholder="password">
+                                <input type="password" name="password" class="form-control" id="password_modal" placeholder="password">
                             </div>
 
                             <p class="text-center">
@@ -296,31 +330,32 @@ _________________________________________________________ -->
 
     <!-- #### JAVASCRIPT FILES ### -->
 
-    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
-    <script>
-        window.jQuery || document.write('<script src="js/jquery-1.11.0.min.js"><\/script>')
-    </script>
+   
     <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
 
-    <script src="js/jquery.cookie.js"></script>
-    <script src="js/waypoints.min.js"></script>
-    <script src="js/jquery.counterup.min.js"></script>
-    <script src="js/jquery.parallax-1.1.3.js"></script>
-    <script src="js/front.js"></script>
+    <script src="{{URL::asset('js/jquery.cookie.js')}}"></script>
+    <script src="{{URL::asset('js/waypoints.min.js')}}"></script>
+    <script src="{{URL::asset('js/jquery.counterup.min.js')}}"></script>
+    <script src="{{URL::asset('js/jquery.parallax-1.1.3.js')}}"></script>
+    <script src="{{URL::asset('js/front.js')}}"></script>
 
     
 
     <!-- owl carousel -->
-    <script src="js/owl.carousel.min.js"></script>
+    <script src="{{URL::asset('js/owl.carousel.min.js')}}"></script>
     <script type="text/javascript">
     $(document).ready(function() {
      
       $("#owl-example").owlCarousel({singleItem:true});
      
     });
+ 
+/* function remove(id)
+ {
+    $("#t"+id).remove();
+ }*/
+
     </script>
-
-
-</body>
+    
 
 </html>

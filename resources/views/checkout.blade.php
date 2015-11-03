@@ -1,134 +1,186 @@
 @extends('header')
 @section('middle')
-<script>
-function itemremove(id)
-{
-	$("#"+id).remove();
-	$.ajax({url: "/remove/"+id, success: function(result){
-		document.getElementById("total1").innerHTML=JSON.parse(result).price;
-		document.getElementById("total2").innerHTML=JSON.parse(result).price;
-		document.getElementById("price").innerHTML=JSON.parse(result).price;
-		document.getElementById("simpleCart_quantity").innerHTML=JSON.parse(result).no;
-}});}
-function submit()
-{
-	document.getElementById('place').click();
-}
+        <div id="heading-breadcrumbs">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-6">
+                        <h1>Shopping cart</h1>
+                    </div>
+                    <div class="col-md-6">
+                        <ul class="breadcrumb">
+                            <li><a href="index.html">Home</a>
+                            </li>
+                            <li>Shopping cart</li>
+                        </ul>
 
-</script>
-<div class="container">
-	<div class="check">
-			 <div class="col-md-3 cart-total">
-			 <a class="continue" href="#">Continue to basket</a>
-			 <div class="price-details">
-				 <h3>Price Details</h3>
-				 <span>Total</span>
-				 <span id="total1" class="total1">RS.{{Session::get('price',0)}}</span>
-				 <span>Discount</span>
-				 <span class="total1">---</span>
-				 <span>Delivery Charges</span>
-				 <span class="total1">FREE</span>
-				 <div class="clearfix"></div>
-			 </div>
-			 <ul class="total_price">
-			   <li class="last_price"> <h4>TOTAL</h4></li>
-			   <li class="last_price"><span id="total2">Rs.{{Session::get('price',0)}}</span></li>
-			   <div class="clearfix"> </div>
-			 </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+ 		    <div class="container">
+
+                <div class="row">
+                    <div class="col-md-12">
+                        <p class="text-muted lead">You currently have 3 item(s) in your cart.</p>
+                    </div>
 
 
-			 <div class="clearfix"></div>
-			 <a class="order" href="#" onclick="submit()">Place Order</a>
-			 <div class="total-item">
-				 <h3>OPTIONS</h3>
-				 <h4>COUPONS</h4>
-				 <a class="cpns" href="#">Apply Coupons</a>
-				 <p><a href="#">Log In</a> to use accounts - linked coupons</p>
-			 </div>
-			</div>
-			{{$id=1}}
-		 <div class="col-md-9 cart-items">
-			 <h1>My Shopping Bag (2)</h1>
-       <form action="/checkout" method="post">
-           <input type="hidden" name="_token" value="<?php echo csrf_token(); ?>">
+                    <div class="col-md-9 clearfix" id="basket">
 
-				<script>$(document).ready(function(c) {
-					$('.close{{$id}}').on('click', function(c){
-						$('.cart-header{{$id}}').fadeOut('slow', function(c){
-							$('.cart-header{{$id}}').remove();
-							$.ajax({url: "/remove/", success: function(result){
-						    document.getElementById("total1").innerHTML=JSON.parse(result).price;
-								document.getElementById("total2").innerHTML=JSON.parse(result).price;
-                document.getElementById("price").innerHTML=JSON.parse(result).price;
-								document.getElementById("simpleCart_quantity").innerHTML=JSON.parse(result).no;
+                        <div class="box">
+
+                            <form method="post" action="/checkout">
+
+                                <div class="table-responsive">
+                                    <table class="table">
+                                        <thead>
+                                            <tr>
+                                                <th colspan="2">Product</th>
+                                                
+                                                <th>Unit price</th>
+                                                <th>Discount</th>
+                                                <th colspan="2">Total</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                        @foreach($item as $single)
+                                        <div  >
+                                            <tr>
+                                            <input class="hidden" name="id[]" value="{{$single->id}}">
+                                                <td>
+                                                    <a href="#">
+                                                        <img src="img/detailsquare.jpg" alt="White Blouse Armani">
+                                                    </a>
+                                                </td>
+                                                <td><a >{{$single->name}}</a>
+                                                </td>
+                                              
+                                                <td id="t" >{{$single->price}}</td>
+                                                <td>0.00</td>
+                                                <td >{{$single->price}}</td>
+                                                <td><a onclick="d()">remove</a>
+                                                </td>
+                                            </tr>
+                                            </div>
+                                        @endforeach
+                                        </tbody>
+                                        <tfoot>
+                                            <tr>
+                                                <th colspan="5">Total</th>
+                                                <th colspan="2">$446.00</th>
+                                            </tr>
+                                        </tfoot>
+                                    </table>
+
+                                </div>
+                                <!-- /.table-responsive -->
+
+                                <div class="box-footer">
+                                 
+                                    <div class="pull-right">
+                                      
+                                        <input type="hidden" name="_token" value="<?php echo csrf_token(); ?>">
+                                        <input type="submit" class="btn btn-template-main" value="Proceed to checkout">
+                                        
+                                    
+                                    </div>
+                                </div>
+
+                            </form>
+
+                        </div>
+                        <!-- /.box -->
+
+                        <div class="row">
+                            <div class="col-md-3">
+                             
+                            </div>
+
+                            <div class="col-md-3">
+                                <div class="product">
+                                
+                                  
+                                </div>
+                                <!-- /.product -->
+                            </div>
+
+                            <div class="col-md-3">
+                                <div class="product">
+                                   
+                                </div>
+                                <!-- /.product -->
+                            </div>
+
+                            <div class="col-md-3">
+                                <div class="product">
+                                    
+                                </div>
+                                <!-- /.product -->
+                            </div>
+
+                        </div>
+
+                    </div>
+                    <!-- /.col-md-9 -->
+
+                    <div class="col-md-3">
+                        <div class="box" id="order-summary">
+                            <div class="box-header">
+                                <h3>Order summary</h3>
+                            </div>
+                            <p class="text-muted">Shipping and additional costs are calculated based on the values you have entered.</p>
+
+                            <div class="table-responsive">
+                                <table class="table">
+                                    <tbody>
+                                        <tr>
+                                            <td>Order subtotal</td>
+                                            <th>$446.00</th>
+                                        </tr>
+                                        <tr>
+                                            <td>Shipping and handling</td>
+                                            <th>$10.00</th>
+                                        </tr>
+                                        <tr>
+                                            <td>Tax</td>
+                                            <th>$0.00</th>
+                                        </tr>
+                                        <tr class="total">
+                                            <td>Total</td>
+                                            <th>$456.00</th>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+
+                        </div>
 
 
-						  }});
+                        <div class="box">
+                            <div class="box-header">
+                                <h4>Coupon code</h4>
+                            </div>
+                            <p class="text-muted">If you have a coupon code, please enter it in the box below.</p>
+                            <form>
+                                <div class="input-group">
 
-						});
-						});
-					});
+                                    <input type="text" class="form-control">
 
-			   </script>
-				 <table class="ui celled padded table">
-				   <thead>
-				     <tr><th class="single line">Item Name</th>
-				     <th>price</th>
+                                    <span class="input-group-btn">
 
-				     <th>remove</th>
-				   </tr></thead>
-				   <tbody>
-						 @foreach($item as $single)
-						 <input class="hidden" name="id[]" value="{{$single->id}}">
-				     <tr id="{{$single->id}}">
-				       <td>
-				         <p class="ui center aligned">{{$single->name}}</p>
-				       </td>
-				       <td class="single line">
-				         {{$single->price}}
-				       </td>
-				      
-				       <td><a onclick="itemremove({{$single->id}})" href="#">remove</a></td>
-				     </tr>
-				     @endforeach
-				   </tbody>
-				 </table>
-		<!--	 <div class="cart-header{{$id}}">
-				 <div  class="close{{$id}}"> </div>
-				 <div class="cart-sec simpleCart_shelfItem">
-						<div class="cart-item cyc">
-               <input name="id[]" value="{{$single->id}}" class="hidden">
-							 <img src="{{$single->url}}" class="img-responsive" alt=""/>
-						</div>
-					   <div class="cart-item-info">
-						<h3><a href="#">{{$single->name}}</a><span>Model No: 3578</span></h3>
-						<ul class="qty">
-							<li><p>Size : 5</p></li>
-							<li class="hidden"><p>quantity<input class="ui input" name="quanttity[]" type="number" min="1" max="20" value="1"></p></li>
-						</ul>
+					    <button class="btn btn-template-main" type="button"><i class="fa fa-gift"></i></button>
 
-							 <div class="delivery">
-							 <p>Service Charges : {{$single->price}}</p>
-							 <span>Delivered in 2-3 bussiness days</span>
-							 <div class="clearfix"></div>
-				        </div>
-					   </div>
-					   <div class="clearfix"></div>
+					</span>
+                                </div>
+                                <!-- /input-group -->
+                            </form>
+                        </div>
 
-				  </div>
-			 </div>-->
+                    </div>
+                    <!-- /.col-md-3 -->
 
-       <input class="hidden" id="place" type="submit">
-</form>
-		 </div>
+                </div>
 
-
-			<div class="clearfix"> </div>
-	 </div>
-	 </div>
-   <div class="ui input">
-
-</div>
-
+            </div>
 
 @endsection
