@@ -63,11 +63,19 @@
  document.getElementById("chan").innerHTML="Added to Cart";
     }});
       }
- function d()
+    function d(id)
  {
  //$('#t').remove();
-   $("#t").remove();
-}
+
+   $("#pooda"+id).remove();
+   $.ajax({url:'remove/'+id,success:function(result)
+{
+    $("th[id='p']").html(JSON.parse(result).price);
+    
+}});
+  
+} 
+
 </script>
 
 <body>
@@ -108,7 +116,7 @@ _________________________________________________________ -->
                                 @else
                                  <a href="/logout"><i class="fa fa-sign-in"></i> <span class="hidden-xs text-uppercase">Log out</span></a>
                                  @endif
-                                <a href="customer-register.html"><i class="fa fa-user"></i> <span class="hidden-xs text-uppercase">Sign up</span></a>
+                                <a href="/register"><i class="fa fa-user"></i> <span class="hidden-xs text-uppercase">Sign up</span></a>
                             </div>
 
                         </div>
@@ -128,8 +136,8 @@ _________________________________________________________ -->
                     <div class="container">
                         <div class="navbar-header">
 
-                            <a class="navbar-brand home" href="index.html">
-                                <img src="img/logo.png" alt="Universal logo" class="hidden-xs hidden-sm">
+                            <a class="navbar-brand home" href="/">
+                                <img src="{{asset('img/logo.png')}}" alt="Universal logo" class="hidden-xs hidden-sm">
                                 <img src="img/logo-small.png" alt="Universal logo" class="visible-xs visible-sm"><span class="sr-only">Universal - go to homepage</span>
                             </a>
                             <div class="navbar-buttons">
@@ -145,11 +153,11 @@ _________________________________________________________ -->
 
                             <ul class="nav navbar-nav navbar-right">
                                 <li class="active">
-                                    <a href="index.html" >Home </a>
+                                    <a href="/" >Home </a>
                                     
                                 </li>
                                 <li class="dropdown use-yamm yamm-fw">
-                                    <a href="#" >PRODUCTS</a>
+                                    <a href="/shop" >PRODUCTS</a>
                                     
                                 </li>
 
@@ -158,7 +166,7 @@ _________________________________________________________ -->
                                 <!-- ========== FULL WIDTH MEGAMENU END ================== -->
 
                                 <li class="dropdown">
-                                    <a >Cart</a>
+                                    <a href="/checkout" >Cart</a>
                              
 
                         </div>
@@ -354,8 +362,25 @@ _________________________________________________________ -->
  {
     $("#t"+id).remove();
  }*/
+function first()
+{
+$("input[id^='irstname']").attr('disabled','disabled');
+$("#my").attr('class','active');
+$("#vic").attr('class','');
+   $("input[id^='firstname']").removeAttr('disabled');
+   //  $("input[id^='place']").attr('id',"1");
+   document.getElementById('place').value=1;
+}
+function second()
+{
+    $("#my").attr('class','');
+$("#vic").attr('class','active');
+$("input[id^='firstname']").attr('disabled','disabled');
+   $("input[id^='irstname']").removeAttr('disabled');
+          //$("input[id^='place']").attr('id',"2");
+          document.getElementById('place').value=2;
+}
+ first();
 
-    </script>
-    
-
+ </script>
 </html>

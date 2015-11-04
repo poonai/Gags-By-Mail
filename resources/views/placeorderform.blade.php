@@ -1,222 +1,121 @@
 @extends('header')
 <!-- content -->
 @section('middle')
-<script>
-function victim()
-{
-$("#2").attr('class', 'ui button disabled registration_left');
-$("#1").attr('class', 'ui button registration_left');
-}
-function myplace()
-{
-$("#1").attr('class', 'ui button disabled registration_left');
-$("#2").attr('class', 'ui button registration_left');
-}
-$('form').on('focus', 'input[type=number]', function (e) {
-  $(this).on('mousewheel.disableScroll', function (e) {
-    e.preventDefault()
-  })
-})
-$('form').on('blur', 'input[type=number]', function (e) {
-  $(this).off('mousewheel.disableScroll')
-})
-</script>
+    <div class="container">
 
-<div class="container">
-  <center> <div class="ui buttons">
-    <button class="ui button" onclick="victim()">My PLace</button>
-    <div class="or"></div>
-    <button class="ui button" onclick="myplace()">Victim Place</button>
-    <div class="main">
-</div></center>
+                <div class="row">
 
-	<!-- start registration -->
+                    <div class="col-md-9 clearfix" id="checkout">
 
-	<div class=" registration">
+                        <div class="box">
+                            <form method="post" action="/myplaceorder">
+<input type="hidden" name="_token" value="<?php echo csrf_token(); ?>">
+<input type="hidden" id="place" type="number" name="place" value="1">
+<input type="hidden" id="place"  name="productid" value="1" value="{{$productid}}">
+                                <ul class="nav nav-pills nav-justified">
+                                    <li id="my" class=""><a href="#" onclick="first()"><i class="fa fa-map-marker"></i><br>My Area</a>
+                                    </li>
+                                    <li  id="vic" class=""><a href="#" onclick="second()"><i class="fa fa-truck"></i><br>Victim Place</a>
+                                    </li>
+                                    
+                                </ul>
 
-		<div id="1" class="ui button disabled registration_left">
-		<h2>new user? <span> My details </span></h2>
-		<!-- [if IE]
-		    < link rel='stylesheet' type='text/css' href='ie.css'/>
-		 [endif] -->
+                                <div class="content">
+                                    <div class="row">
+                                        <div class="col-sm-6 disabled">
+                                            <div class="form-group">
+                                               
+                                                 <label for="firstname">Name</label>
+                                                <input type="text" name="name" class="form-control" id="firstname">
+                                                 <label for="firstname">Address</label>
+                                                <input type="text" name="address" class="form-control" id="firstname">
+                                                 
+                                                 <label for="firstname">Pincode</label>
+                                                <input type="number" name="postalcode" class="form-control" id="firstname">
+                                                 <label for="firstname">Phone Number</label>
+                                                <input type="number" name="Contact Number" class="form-control" id="firstname">
+                                                  <label for="firstname">Customized message</label>
+                                                <input type="text" name="Personalized" class="form-control" id="firstname">
 
-		<!-- [if lt IE 7]>
-		    < link rel='stylesheet' type='text/css' href='ie6.css'/>
-		<! [endif] -->
-		<script>
-			(function() {
-			// Create input element for testing
-			var inputs = document.createElement('input');
-			// Create the supports object
-			var supports = {};
-			supports.autofocus   = 'autofocus' in inputs;
-			supports.required    = 'required' in inputs;
-			supports.placeholder = 'placeholder' in inputs;
-			// Fallback for autofocus attribute
-			if(!supports.autofocus) {
-			}
-			// Fallback for required attribute
-			if(!supports.required) {
-			}
-			// Fallback for placeholder attribute
-			if(!supports.placeholder) {
-			}
-			// Change text inside send button on submit
-			var send = document.getElementById('register-submit');
-			if(send) {
-				send.onclick = function () {
-					this.innerHTML = '...Sending';
-				}
-			}
-		})();
-		</script>
+                                              
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-6">
+                                            <div class="form-group">
+                                                     <label for="firstname">Name</label>
+                                                <input type="text" name="name1" class="form-control" id="irstname" >
+                                                 <label for="firstname">Address</label>
+                                                <input type="text" name="address1" class="form-control" id="irstname">
+                                                  <label for="firstname">City</label>
+                                                <input type="text" name="city1" class="form-control" id="irstname">
+                                                 <label for="firstname">Pincode</label>
+                                                <input type="number" name="pincode1" class="form-control" id="irstname">
+                                                 <label for="firstname">Phone Number</label>
+                                                <input type="number" name="po1"  class="form-control" id="irstname">
+                                                  <label for="firstname">Customized message</label>
+                                                <input type="text" name="message1" class="form-control" id="irstname">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- /.row -->
 
-		 <div class="registration_form">
-		 <!-- Form -->
+                                    
+                                    <!-- /.row -->
+                                </div>
 
-			<form class="ui form" id="registration_form" action="/myplaceorder" method="post">
+                                <div class="box-footer">
+                                   
+                                    <div class="pull-right">
+                                        <button type="submit" class="btn btn-template-main "  >Proceed To Pay<i class="fa fa-chevron-right"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                        <!-- /.box -->
 
 
+                    </div>
+                    <!-- /.col-md-9 -->
 
-				<div>
-					<label>
-            <input type="hidden" name="_token" value="<?php echo csrf_token(); ?>">
-            <input type="hidden" name="productid" value="{{$productid}}">
-						<input name="name" placeholder="Name:" type="text" tabindex="1" value="{{$user->find(Session::get('uid'))->name}}" required autofocus>
-					</label>
-				</div>
+                    <div class="col-md-3">
 
-				<div>
-					<label>
-						<input name="mail" placeholder="Email:" style="text-transform: lower type="email"  value="{{$user->find(Session::get('uid'))->email}}" tabindex="3" required>
+                        <div class="box" id="order-summary">
+                            <div class="box-header">
+                                <h3>Order summary</h3>
+                            </div>
+                            <p class="text-muted">Shipping and additional costs are calculated based on the values you have entered.</p>
 
-					</label>
-				</div>
+                            <div class="table-responsive">
+                                <table class="table">
+                                    <tbody>
+                                        <tr>
+                                            <td>Order subtotal</td>
+                                            <th>$446.00</th>
+                                        </tr>
+                                        <tr>
+                                            <td>Shipping and handling</td>
+                                            <th>$10.00</th>
+                                        </tr>
+                                        <tr>
+                                            <td>Tax</td>
+                                            <th>$0.00</th>
+                                        </tr>
+                                        <tr class="total">
+                                            <td>Total</td>
+                                            <th>$456.00</th>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
 
-				<div>
-					<label>
-						<input name="address" placeholder="Address" type="text" tabindex="4" required>
-					</label>
-				</div>
+                        </div>
 
-				<div>
-					<label>
-						<input name="Contact Number" placeholder="Contact Number" type="number" tabindex="4" required>
-					</label>
-				</div>
+                    </div>
+                    <!-- /.col-md-3 -->
 
-				<div>
-					<label>
-						<input name="postalcode" placeholder="Zip/Postal code" type="number" tabindex="4" required>
-					</label>
-				</div>
+                </div>
+                <!-- /.row -->
 
-				<div>
-					<label>
-						<input name="city" placeholder="City" type="text" tabindex="4" required>
-					</label>
-				</div>
-
-				<div>
-					<label>
-						<input name="state" placeholder="State" type="text" tabindex="4" required>
-					</label>
-				</div>
-
-				<div>
-					<label>
-						<input name="Personalized" placeholder="Please type your personalized message here" type="text" tabindex="4" required>
-					</label>
-				</div>
-				<div>
-
-				</div>
-				<div>
-					<input type="submit" value="Place Order" id="register-submit">
-				</div>
-
-			</form>
-			<!-- /Form -->
-		</div>
-	</div>
-	<div id="2" class="ui button registration_left">
-		<h2>Victim Details</h2>
-		 <div class="registration_form">
-		 <!-- Form -->
-
-     			<form class="ui form" id="registration_form" action="/myplaceorder" method="post">
-
-
-
-     				<div>
-     					<label>
-                 <input type="hidden" name="_token" value="<?php echo csrf_token(); ?>">
-                 <input type="hidden" name="productid" value="">
-     						<input name="name" placeholder="Name:" type="text" tabindex="1" value="" required autofocus>
-     					</label>
-     				</div>
-
-     				<div>
-     					<label>
-
-     					</label>
-     				</div>
-
-     				<div>
-     					<label>
-     						<input name="address" placeholder="Address" type="text" tabindex="4" required>
-     					</label>
-     				</div>
-
-     				<div>
-     					<label>
-     						<input name="Contact Number" placeholder="Contact Number" type="number" tabindex="4" required>
-     					</label>
-     				</div>
-
-     				<div>
-     					<label>
-     						<input name="postalcode" placeholder="Zip/Postal code" type="number" tabindex="4" required>
-     					</label>
-     				</div>
-
-     				<div>
-     					<label>
-     						<input name="city" placeholder="City" type="text" tabindex="4" required>
-     					</label>
-     				</div>
-
-     				<div>
-     					<label>
-     						<input name="state" placeholder="State" type="text" tabindex="4" required>
-     					</label>
-     				</div>
-
-     				<div>
-     					<label>
-     						<input name="Personalized" placeholder="Please type your personalized message here" type="text" tabindex="4" required>
-     					</label>
-     				</div>
-     				<div>
-
-     				</div>
-     				<div>
-     					<input type="submit" value="Place Order" id="register-submit">
-     				</div>
-
-     			</form>
-			<!-- /Form -->
-			</div>
-	</div>
-	<div class="clearfix"></div>
-	</div>
-	<!-- end registration -->
-</div>
-</div>
-
-	<div class="clearfix"></div>
-	</div>
-	<!-- end registration -->
-</div>
-</div>
+            </div>
 @endsection

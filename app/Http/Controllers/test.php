@@ -12,7 +12,7 @@ use App\product_tokens;
 use App\order_address;
 use App\product_token;
 use Session;
-
+use Mail;
 class test extends Controller
 {
     //roductvi
@@ -162,11 +162,14 @@ echo json_encode($response);
        else {
                return view('index',['invalid'=>1]);
        }
+       
     }
 }
 function myplaceorder(Request $request)
 {
-  $order_address=new order_address;
+  if($request['place']==1)
+  {
+     $order_address=new order_address;
   $order_address->name=$request['name'];
   $order_address->phone=(string)$request['Contact Number'];
   $order_address->pincode=$request['postalcode'];
@@ -180,7 +183,7 @@ function myplaceorder(Request $request)
   $return_key=md5($token.rand());
   $order_token->order_token=$return_key;
   $order_token->save();
-  $api = new Instamojo('b0702bd721ad77f700aa98e4b5a8832a', 'aec9d4a72e40263ea010f35beae47f96');
+    $api = new Instamojo('b0702bd721ad77f700aa98e4b5a8832a', 'aec9d4a72e40263ea010f35beae47f96');
         try {
       $response = $api->linkCreate(array(
           'title'=>'Gags By Mail',
@@ -197,18 +200,80 @@ function myplaceorder(Request $request)
   catch (Exception $e) {
       print('Error: ' . $e->getMessage());
   }
+
+  }
+  elseif ($request['place']==2) {
+    $victimorder=new victimorder;
+    $victimorder->name=$request['name1'];
+    $victimorder->address=$request['address1'];
+    $victimorder->city=$request['city1'];
+    $victimorder->pincode=$request['pincode1'];
+    $victimorder->number=$request['po1'];
+    $victimorder->message=$request['message1'];
+    $victimorder->save();
+      $order_token=new product_token;
+  $order_token->u_id=Session::get('uid');
+  $order_token->order_id=$token;
+  $return_key=md5($token.rand());
+  $order_token->order_token=$return_key;
+  $order_token->save();
+    $api = new Instamojo('b0702bd721ad77f700aa98e4b5a8832a', 'aec9d4a72e40263ea010f35beae47f96');
+        try {
+      $response = $api->linkCreate(array(
+          'title'=>'Gags By Mail',
+          'description'=>'Create a new Link easily',
+          'base_price'=>Session::get('price',0),
+          'currency'=>'INR',
+          'redirect_url'=>'http://localhost:8000/sucess/'.$return_key
+          ));
+    $user=user::find(Session::get('uid'));
+    //dd($user);
+
+      return redirect($response['url']."?data_name=".$user->name."&data_email=".$user->email."&data_readonly=data_name&data_readonly=data_email");
+  }
+  catch (Exception $e) {
+      print('Error: ' . $e->getMessage());
+  }
+  }
+  else{
+    echo "fuck u mother fucker";
+  }
+  /*
+ 
+  $api = new Instamojo('b0702bd721ad77f700aa98e4b5a8832a', 'aec9d4a72e40263ea010f35beae47f96');
+        try {
+      $response = $api->linkCreate(array(
+          'title'=>'Gags By Mail',
+          'description'=>'Create a new Link easily',
+          'base_price'=>Session::get('price',0),
+          'currency'=>'INR',
+          'redirect_url'=>'http://localhost:8000/sucess/'.$return_key
+          ));
+    $user=user::find(Session::get('uid'));
+    //dd($user);
+
+      return redirect($response['url']."?data_name=".$user->name."&data_email=".$user->email."&data_readonly=data_name&data_readonly=data_email");
+  }
+  catch (Exception $e) {
+      print('Error: ' . $e->getMessage());
+  }*/
 }
 
 function sucess($token)
 {
-  $product_token=product_token::where('order_token',$return_key)->get();
+  $product_token=product_token::where('order_token',$token)->get();
   //dd($product_token);
   foreach($product_token as $orders)
   {
     $orders->order_info=true;
     $orders->save();
-      echo "sucess full transaction".$_GET['status'];
+         Mail::send(['text'=>'mailse'], ['user' => 'asa'], function ($m)  {
+            $m->to('rbalajis25@gmail.com', 'schoolboy')->subject('Your Reminder!');
+        });
+      return view('sucess');
+
   }
+
   //$loginfo=Session::put('loginfo');
 
 
@@ -237,7 +302,7 @@ function chellam($token)
         'description'=>'Create a new Link easily',
         'base_price'=>Sesson::price,
         'currency'=>'INR',
-        'redirect_url'=>'http://localhost:8000/'.$token
+        'redirect_url'=>'http://localhost:8000/sucess'.$token
         ));
     print_r($response);
 }

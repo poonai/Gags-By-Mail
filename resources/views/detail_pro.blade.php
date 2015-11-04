@@ -27,7 +27,7 @@
                         <div class="row" id="productMain">
                             <div class="col-sm-6">
                                 <div id="mainImage">
-                                    <img src="{{$item->url}}" alt="" class="img-responsive">
+                                    <img src="{{asset($item->url)}}" alt="" class="img-responsive">
                                 </div>
 
                                                               <!-- /.ribbon -->
@@ -69,18 +69,18 @@
 
                                 <div style="margin-top:10%;" class="row" id="thumbs">
                                     <div class="col-xs-4">
-                                        <a href="img/detailbig1.jpg" class="thumb">
-                                            <img src="img/detailsquare.jpg" alt="" class="img-responsive">
+                                        <a href="{{asset($item->url)}}" class="thumb">
+                                            <img src="{{asset($item->url)}}" alt="" class="img-responsive">
                                         </a>
                                     </div>
                                     <div class="col-xs-4">
-                                        <a href="img/detailbig2.jpg" class="thumb">
-                                            <img src="img/detailsquare2.jpg" alt="" class="img-responsive">
+                                        <a href="{{asset($item->url)}}" class="thumb">
+                                            <img src="{{asset($item->url)}}" alt="" class="img-responsive">
                                         </a>
                                     </div>
                                     <div class="col-xs-4">
-                                        <a href="img/detailbig3.jpg" class="thumb">
-                                            <img src="img/detailsquare3.jpg" alt="" class="img-responsive">
+                                        <a href="{{asset($item->url)}}" class="thumb">
+                                            <img src="{{asset($item->url)}}" alt="" class="img-responsive">
                                         </a>
                                     </div>
                                 </div>
@@ -92,22 +92,16 @@
                         <div class="box" id="details">
                             <p>
                                 <h4>Product details</h4>
-                                <p>White lace top, woven, has a round neck, short sleeves, has knitted lining attached</p>
-                                <h4>Material & care</h4>
+                                <p>{{$item->bigline}}</p>
+                                <h4>Material</h4>
                                 <ul>
-                                    <li>Polyester</li>
-                                    <li>Machine wash</li>
+                                    <li>{{$item->spec1}}</li>
+                                    <li>{{$item->spec2}}</li>
                                 </ul>
-                                <h4>Size & Fit</h4>
-                                <ul>
-                                    <li>Regular fit</li>
-                                    <li>The model (height 5'8" and chest 33") is wearing a size S</li>
+        
                                 </ul>
 
-                                <blockquote>
-                                    <p><em>Define style this season with Armani's new range of trendy tops, crafted with intricate details. Create a chic statement look by teaming this lace number with skinny jeans and pumps.</em>
-                                    </p>
-                                </blockquote>
+                            
                         </div>
 
                         <div class="box social" id="product-social">

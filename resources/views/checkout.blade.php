@@ -29,9 +29,10 @@
 
                         <div class="box">
 
-                            <form method="post" action="/checkout">
+                          <!--  <form method="post" action="/checkout">-->
 
                                 <div class="table-responsive">
+                                <form method="post" action="/checkout">
                                     <table class="table">
                                         <thead>
                                             <tr>
@@ -44,30 +45,30 @@
                                         </thead>
                                         <tbody>
                                         @foreach($item as $single)
-                                        <div  >
-                                            <tr>
+                                        
+                                            <tr id="pooda{{$single->id}}">
                                             <input class="hidden" name="id[]" value="{{$single->id}}">
                                                 <td>
                                                     <a href="#">
                                                         <img src="img/detailsquare.jpg" alt="White Blouse Armani">
                                                     </a>
                                                 </td>
-                                                <td><a >{{$single->name}}</a>
+                                                <td ><a >{{$single->name}}</a>
                                                 </td>
                                               
-                                                <td id="t" >{{$single->price}}</td>
+                                                <td  >{{$single->price}}</td>
                                                 <td>0.00</td>
                                                 <td >{{$single->price}}</td>
-                                                <td><a onclick="d()">remove</a>
+                                                <td><a onclick="d({{$single->id}})">remove</a>
                                                 </td>
                                             </tr>
-                                            </div>
+                                            
                                         @endforeach
                                         </tbody>
                                         <tfoot>
                                             <tr>
                                                 <th colspan="5">Total</th>
-                                                <th colspan="2">$446.00</th>
+                                                <th id="p" colspan="2">RS.{{Session::get('price',0)}}</th>
                                             </tr>
                                         </tfoot>
                                     </table>
@@ -85,8 +86,8 @@
                                     
                                     </div>
                                 </div>
-
-                            </form>
+</form>
+                            <!--</form>-->
 
                         </div>
                         <!-- /.box -->
@@ -135,19 +136,20 @@
                                     <tbody>
                                         <tr>
                                             <td>Order subtotal</td>
-                                            <th>$446.00</th>
+                                            <th id="p">{{Session::get('price',0)}}</th>
                                         </tr>
+                                    
                                         <tr>
                                             <td>Shipping and handling</td>
-                                            <th>$10.00</th>
+                                            <th>0.00</th>
                                         </tr>
                                         <tr>
                                             <td>Tax</td>
-                                            <th>$0.00</th>
+                                            <th>0.00</th>
                                         </tr>
                                         <tr class="total">
                                             <td>Total</td>
-                                            <th>$456.00</th>
+                                            <th id="p">{{Session::get('price',0)}}</th>
                                         </tr>
                                     </tbody>
                                 </table>

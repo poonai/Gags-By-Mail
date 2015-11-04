@@ -89,11 +89,11 @@
                                 <div class="form-group">
                                     {!! csrf_field() !!}
                                     <label for="email">Email</label>
-                                    <input type="text" class="form-control" id="email" required>
+                                    <input type="text" name="mail" class="form-control" id="email" required>
                                 </div>
                                 <div class="form-group">
                                     <label for="password">Password</label>
-                                    <input type="password" class="form-control" id="password" required>
+                                    <input type="password" name="password" class="form-control" id="password" required>
                                 </div>
                                 <div class="text-center">
                                     <button type="submit" class="btn btn-template-main"><i class="fa fa-sign-in"></i> Log in</button>
