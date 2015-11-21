@@ -19,7 +19,7 @@
 
     <!-- Css animations  -->
     <link href="{{URL::asset('css/animate.css')}}" rel="stylesheet">
-
+   
     <!-- Theme stylesheet, if possible do not edit this stylesheet -->
     <link href="{{URL::asset('css/style.default.css')}}" rel="stylesheet" id="theme-stylesheet">
 
@@ -33,7 +33,7 @@
 <![endif]-->
 
     <!-- Favicon and apple touch icons-->
-    <link rel="shortcut icon" href="img/favicon" type="image/x-icon" />
+    <link rel="shortcut icon" href="{{URL::asset('img/favicon')}}" type="image/x-icon" />
     <link rel="apple-touch-icon" href="img/apple-touch-icon.png" />
     <link rel="apple-touch-icon" sizes="57x57" href="img/apple-touch-icon-57x57.png" />
     <link rel="apple-touch-icon" sizes="72x72" href="img/apple-touch-icon-72x72.png" />
@@ -44,8 +44,8 @@
     <link rel="apple-touch-icon" sizes="152x152" href="img/apple-touch-icon-152x152.png" />
     <!-- owl carousel css -->
 
-    <link href="css/owl.carousel.css" rel="stylesheet">
-    <link href="css/owl.theme.css" rel="stylesheet">
+    <link href="{{URL::asset('css/owl.carousel.css')}}" rel="stylesheet">
+    <link href="{{URL::asset('css/owl.theme.css')}}" rel="stylesheet">
    
 </head>
  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
@@ -138,7 +138,7 @@ _________________________________________________________ -->
 
                             <a class="navbar-brand home" href="/">
                                 <img src="{{asset('img/logo.png')}}" alt="Universal logo" class="hidden-xs hidden-sm">
-                                <img src="img/logo-small.png" alt="Universal logo" class="visible-xs visible-sm"><span class="sr-only">Universal - go to homepage</span>
+                                <img src="{{asset('img/logo-small.png')}}" alt="Universal logo" class="visible-xs visible-sm"><span class="sr-only">Universal - go to homepage</span>
                             </a>
                             <div class="navbar-buttons">
                                 <button type="button" class="navbar-toggle btn-template-main" data-toggle="collapse" data-target="#navigation">
@@ -352,12 +352,12 @@ _________________________________________________________ -->
     <!-- owl carousel -->
     <script src="{{URL::asset('js/owl.carousel.min.js')}}"></script>
     <script type="text/javascript">
-    $(document).ready(function() {
+  /*  $(document).ready(function() {
      
-      $("#owl-example").owlCarousel({singleItem:true});
+   
      
-    });
- 
+    });*/
+    $("#owl-example").owlCarousel({singleItem:true});
 /* function remove(id)
  {
     $("#t"+id).remove();

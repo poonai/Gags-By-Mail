@@ -108,12 +108,11 @@ Just give us their name and address. </br><strong>We'll take care of the rest.</
             <div class="container">
                 <div class="row">
                     <div class="col-md-12">
-                        <div class="icon icon-lg"><i class="fa fa-file-code-o"></i>
-                        </div>
-                        <h3 class="text-uppercase">Do you want to see more?</h3>
-                        <p class="lead">We have prepared for you more than 40 different HTML pages, including 5 variations of homepage.</p>
+                       
+                        <h3 class="text-uppercase">Check out our product</h3>
+                        <p class="lead">We have varied range of pranks which will leave your friend drumstruck</p>
                         <p class="text-center">
-                            <a href="index2.html" class="btn btn-template-transparent-black btn-lg">Check other homepage</a>
+                            <a href="/shop" class="btn btn-template-transparent-black btn-lg">Prank Now</a>
                         </p>
                     </div>
 
@@ -136,7 +135,7 @@ Just give us their name and address. </br><strong>We'll take care of the rest.</
                             <div class="team-member" data-animate="fadeInUp">
                                 <div class="image">
                                     <a href="team-member.html">
-                                        <img src="img/feature3.png" alt="" class="img-responsive img-circle">
+                                        <img src="{{URL::asset('img/feature3.png')}}" alt="" class="img-responsive img-circle">
                                     </a>
                                 </div>
                                 <h3><a href="team-member.html">YOUR BOSS</a></h3>
@@ -154,7 +153,7 @@ Just give us their name and address. </br><strong>We'll take care of the rest.</
                             <div class="team-member">
                                 <div class="image">
                                     <a href="team-member.html">
-                                        <img src="img/feature1.png" alt="" class="img-responsive img-circle">
+                                        <img src="{{URL::asset('img/feature1.png')}}" alt="" class="img-responsive img-circle">
                                     </a>
                                 </div>
                                 <h3><a href="team-member.html">AN EX</a></h3><br>
@@ -169,7 +168,7 @@ Just give us their name and address. </br><strong>We'll take care of the rest.</
                             <div class="team-member">
                                 <div class="image">
                                     <a href="team-member.html">
-                                        <img src="img/feature3.png" alt="" class="img-responsive img-circle">
+                                        <img src="{{URL::asset('img/feature3.png')}}" alt="" class="img-responsive img-circle">
                                     </a>
                                 </div>
                                 <h3><a href="team-member.html">NOISY NEIGHBOUR</a></h3><br>
@@ -184,7 +183,7 @@ Just give us their name and address. </br><strong>We'll take care of the rest.</
                             <div class="team-member">
                                 <div class="image">
                                     <a href="team-member.html">
-                                        <img src="img/feature4.png" alt="" class="img-responsive img-circle">
+                                        <img src="{{URL::asset('img/feature4.png')}}" alt="" class="img-responsive img-circle">
                                     </a>
                                 </div>
                                 <h3><a href="team-member.html">NICE OLD LADY</a></h3><br>
