@@ -8,14 +8,23 @@ use App\Http\Controllers\Controller;
 use App\user;
 use App\item;
 use App\order;
+use App\mailinglist;
 use App\product_tokens;
 use App\order_address;
 use App\product_token;
+use App\victimorder;
 use Session;
 use Mail;
 class test extends Controller
 {
     //roductvi
+    function mailing(Request $request)
+    {
+      $mailinglist=new mailinglist;
+      $mailinglist->email=$request['mail'];
+      $mailinglist->save();
+          return view('index',['loginfo'=>0,'placelogin'=>0,'added'=>1]);
+    }
     function populate()
     {
       return view('populate');
@@ -64,8 +73,8 @@ class test extends Controller
           }
         return view('checkout',['lable'=>0,'loginfo'=>0,'id'=>Session::get('id',array()),'item'=>$item,'placelogin'=>0]);
     }
-    
- 
+
+
     function proceed(Request $request)
     {
       $id=Session::get('id',array());
@@ -121,7 +130,7 @@ echo json_encode($response);
       Session::put('id',$ids);
       Session::put('price',$price);
       echo "added";
-     
+
     }
     function registerdb(Request $request)
     {
@@ -136,6 +145,7 @@ echo json_encode($response);
         $user->password=md5($request['password']);
         $user->save();
         Session::put('loginfo',0);
+           Session::put('uid',user::where('email',$request['mail'])->first()->id);
         return redirect('/');
       }
 
@@ -162,7 +172,7 @@ echo json_encode($response);
        else {
                return view('index',['invalid'=>1]);
        }
-       
+
     }
 }
 function myplaceorder(Request $request)
@@ -170,11 +180,13 @@ function myplaceorder(Request $request)
   if($request['place']==1)
   {
      $order_address=new order_address;
+     $order_address->type="himself";
   $order_address->name=$request['name'];
   $order_address->phone=(string)$request['Contact Number'];
   $order_address->pincode=$request['postalcode'];
   $order_address->address=$request['address'];
   $order_address->message=$request['Personalized'];
+  $order_address->order_id=$request['productid'];
   $order_address->save();
   $token=$request['productid'];
   $order_token=new product_token;
@@ -190,7 +202,7 @@ function myplaceorder(Request $request)
           'description'=>'Create a new Link easily',
           'base_price'=>Session::get('price',0),
           'currency'=>'INR',
-          'redirect_url'=>'http://localhost:8000/sucess/'.$return_key
+          'redirect_url'=>'http://.'.$_SERVER['HTTP_HOST'].'./sucess/'.$return_key
           ));
     $user=user::find(Session::get('uid'));
     //dd($user);
@@ -203,14 +215,17 @@ function myplaceorder(Request $request)
 
   }
   elseif ($request['place']==2) {
-    $victimorder=new victimorder;
+    $victimorder=new order_address;
+    $victimorder->type="victim";
     $victimorder->name=$request['name1'];
     $victimorder->address=$request['address1'];
     $victimorder->city=$request['city1'];
     $victimorder->pincode=$request['pincode1'];
-    $victimorder->number=$request['po1'];
+    $victimorder->phone=$request['po1'];
     $victimorder->message=$request['message1'];
+      $victimorder->order_id=$request['productid'];
     $victimorder->save();
+      $token=$request['productid'];
       $order_token=new product_token;
   $order_token->u_id=Session::get('uid');
   $order_token->order_id=$token;
@@ -224,7 +239,7 @@ function myplaceorder(Request $request)
           'description'=>'Create a new Link easily',
           'base_price'=>Session::get('price',0),
           'currency'=>'INR',
-          'redirect_url'=>'http://localhost:8000/sucess/'.$return_key
+          'redirect_url'=>'http://'.$_SERVER['HTTP_HOST'].'/sucess/'.$return_key
           ));
     $user=user::find(Session::get('uid'));
     //dd($user);
@@ -239,7 +254,7 @@ function myplaceorder(Request $request)
     echo "fuck u mother fucker";
   }
   /*
- 
+
   $api = new Instamojo('b0702bd721ad77f700aa98e4b5a8832a', 'aec9d4a72e40263ea010f35beae47f96');
         try {
       $response = $api->linkCreate(array(
@@ -267,13 +282,14 @@ function sucess($token)
   {
     $orders->order_info=true;
     $orders->save();
-         Mail::send(['text'=>'mailse'], ['user' => 'asa'], function ($m)  {
+  }
+  Mail::send(['text'=>'mailse'], ['user' => $token], function ($m)  {
             $m->to('rbalajis25@gmail.com', 'schoolboy')->subject('Your Reminder!');
         });
-      return view('sucess');
-
-  }
-
+    Mail::send(['text'=>'mailse'], ['user' => $token], function ($m)  {
+            $m->to('pratik0202.pa@gmail.com', 'schoolboy')->subject('Your Reminder!');
+        });
+        return view('sucess');
   //$loginfo=Session::put('loginfo');
 
 
@@ -290,7 +306,7 @@ function chellam($token)
     function anja()
     {
        Session::flush();
-
+     //user::where('email', 1)->first()->id
     }
     function anvena($token)
     {

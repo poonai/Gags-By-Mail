@@ -37,7 +37,7 @@
                                         <thead>
                                             <tr>
                                                 <th colspan="2">Product</th>
-                                                
+
                                                 <th>Unit price</th>
                                                 <th>Discount</th>
                                                 <th colspan="2">Total</th>
@@ -45,7 +45,7 @@
                                         </thead>
                                         <tbody>
                                         @foreach($item as $single)
-                                        
+
                                             <tr id="pooda{{$single->id}}">
                                             <input class="hidden" name="id[]" value="{{$single->id}}">
                                                 <td>
@@ -55,20 +55,20 @@
                                                 </td>
                                                 <td ><a >{{$single->name}}</a>
                                                 </td>
-                                              
-                                                <td  >{{$single->price}}</td>
-                                                <td>0.00</td>
-                                                <td >{{$single->price}}</td>
+
+                                                <td >&#8377 {{$single->price}}</td>
+                                                <td>&#8377 0.00</td>
+                                                <td >&#8377 {{$single->price}}</td>
                                                 <td><a onclick="d({{$single->id}})">remove</a>
                                                 </td>
                                             </tr>
-                                            
+
                                         @endforeach
                                         </tbody>
                                         <tfoot>
                                             <tr>
                                                 <th colspan="5">Total</th>
-                                                <th id="p" colspan="2">RS.{{Session::get('price',0)}}</th>
+                                                <th id="p" colspan="2">&#8377 {{Session::get('price',0)}}</th>
                                             </tr>
                                         </tfoot>
                                     </table>
@@ -77,13 +77,13 @@
                                 <!-- /.table-responsive -->
 
                                 <div class="box-footer">
-                                 
+
                                     <div class="pull-right">
-                                      
+
                                         <input type="hidden" name="_token" value="<?php echo csrf_token(); ?>">
                                         <input type="submit" class="btn btn-template-main" value="Proceed to checkout">
-                                        
-                                    
+
+
                                     </div>
                                 </div>
 </form>
@@ -94,27 +94,27 @@
 
                         <div class="row">
                             <div class="col-md-3">
-                             
+
                             </div>
 
                             <div class="col-md-3">
                                 <div class="product">
-                                
-                                  
+
+
                                 </div>
                                 <!-- /.product -->
                             </div>
 
                             <div class="col-md-3">
                                 <div class="product">
-                                   
+
                                 </div>
                                 <!-- /.product -->
                             </div>
 
                             <div class="col-md-3">
                                 <div class="product">
-                                    
+
                                 </div>
                                 <!-- /.product -->
                             </div>
@@ -136,20 +136,20 @@
                                     <tbody>
                                         <tr>
                                             <td>Order subtotal</td>
-                                            <th id="p">{{Session::get('price',0)}}</th>
+                                            <th id="p">&#8377 {{Session::get('price',0)}}</th>
                                         </tr>
-                                    
+
                                         <tr>
                                             <td>Shipping and handling</td>
-                                            <th>0.00</th>
+                                            <th>&#8377 0.00</th>
                                         </tr>
                                         <tr>
                                             <td>Tax</td>
-                                            <th>0.00</th>
+                                            <th>&#8377 0.00</th>
                                         </tr>
                                         <tr class="total">
                                             <td>Total</td>
-                                            <th id="p">{{Session::get('price',0)}}</th>
+                                            <th id="p">&#8377 {{Session::get('price',0)}}</th>
                                         </tr>
                                     </tbody>
                                 </table>

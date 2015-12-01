@@ -50,22 +50,22 @@
                                     <label for="name-login">Name</label>
                                     <input type="text" name="name" class="form-control" id="name-login" required>
                                 </div>
-                              
+
                                 @if(isset($error) ? $error :  0)
                                   <div class="form-group has-error">
                                  <label for="email-login">Already taken Email</label>
-                                    <input type="text" name="mail" class="form-control" id="email-login" required>
+                                    <input type="email" name="mail" class="form-control" id="email-login" required>
                                     @else
                                     <div class="form-group ">
                                     <label for="email-login">Email</label>
-                                    <input type="text" name="mail" class="form-control" id="email-login" required>
+                                    <input type="email" name="mail" class="form-control" id="email-login" required>
                                     @endif
                                 </div>
                                 <div class="form-group">
                                     <label for="password-login">Password</label>
-                                    <input type="password" name="password" class="form-control" id="password-login" required>
+                                    <input pattern=".{6,}"  type="password" name="password" class="form-control" id="password-login" required title="minimum 6 characters">
                                     <label style="margin-top:1%;">
-      <input id="ck" name="terms" type="checkbox" required> I Accept Terms And Condition
+      <input id="ck" name="terms" type="checkbox" required title="please accept the terms and condition before you proceed"> I Accept Terms And Condition
     </label>
                                 </div>
                                 <div class="text-center">

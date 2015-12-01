@@ -5,21 +5,21 @@
             <!-- *** HOMEPAGE CAROUSEL ***
  _________________________________________________________ -->
 
-         
 
-               
 
-              
+
+
+
                        <div id="owl-example" class="owl-carousel">
       <div><img style="width:100%;" src="img/first banner.jpg"></div>
       <div> <img style="width:100%;" src="img/second banner.jpg"> </div>
       <div><img style="width:100%;" src="img/third banner.jpg"></div>
- 
-     
+
+
     </div>
                     <!-- /.project owl-slider -->
-              
-         
+
+
 
             <!-- *** HOMEPAGE CAROUSEL END *** -->
         </section>
@@ -30,7 +30,7 @@
 
             <div class="container">
                 <div class="col-md-12">
-              
+
 
                     <div class="row">
                         <div class="col-md-4">
@@ -50,7 +50,7 @@ Just give us their name and address. </br><strong>We'll take care of the rest.</
                                    <i class="fa fa-odnoklassniki"></i>
                                 </div>
                                 <h3>Will my name be revealed?</h3>
-                                <p>No personal information is shared with the recipient other than what you add in the custom message. We do maintain records for legal purposes. :P 
+                                <p>No personal information is shared with the recipient other than what you add in the custom message. We do maintain records for legal purposes. :P
                 AND we will be verifying every order.</p>
                             </div>
                         </div>
@@ -90,7 +90,7 @@ Just give us their name and address. </br><strong>We'll take care of the rest.</
                                     <i class="fa fa-map-pin"></i>
                                 </div>
                                 <h3>Why should i pay ?</h3>
-                                <p>First off, use your imagination. We're going to be pouring a tonne of glitter into an envelope with a folded up piece of paper. You know what's going to happen when that special someone opens the envelope & pulls out the letter? The craft herpes will be released & will go everywhere. 
+                                <p>First off, use your imagination. We're going to be pouring a tonne of glitter into an envelope with a folded up piece of paper. You know what's going to happen when that special someone opens the envelope & pulls out the letter? The craft herpes will be released & will go everywhere.
                 By Far the most effective and easiest prank ever.</p>
                             </div>
                         </div>
@@ -108,7 +108,7 @@ Just give us their name and address. </br><strong>We'll take care of the rest.</
             <div class="container">
                 <div class="row">
                     <div class="col-md-12">
-                       
+
                         <h3 class="text-uppercase">Check out our product</h3>
                         <p class="lead">We have varied range of pranks which will leave your friend drumstruck</p>
                         <p class="text-center">
@@ -120,7 +120,7 @@ Just give us their name and address. </br><strong>We'll take care of the rest.</
             </div>
         </section>
 
-   
+
         <!-- /.bar -->
 
        <section class="bar background-white no-mb">
@@ -139,9 +139,9 @@ Just give us their name and address. </br><strong>We'll take care of the rest.</
                                     </a>
                                 </div>
                                 <h3><a href="team-member.html">YOUR BOSS</a></h3>
-                                
+
                                 <div class="social">
-                                    
+
                                 </div>
                                 <div class="text">
                                     <p style="font-size:1em;">Send your boss, that scheduled you for a double shift on your birthday, lovely glitter everywhere envelope to get all over his keyboard.</p>
@@ -157,7 +157,7 @@ Just give us their name and address. </br><strong>We'll take care of the rest.</
                                     </a>
                                 </div>
                                 <h3><a href="team-member.html">AN EX</a></h3><br>
-                
+
                 <div class="text">
                                     <p style="font-size:1em;">Send your ex, that fucked your best friend, a piece of shit because (s)he shit in your heart.</p>
                                 </div>
@@ -172,7 +172,7 @@ Just give us their name and address. </br><strong>We'll take care of the rest.</
                                     </a>
                                 </div>
                                 <h3><a href="team-member.html">NOISY NEIGHBOUR</a></h3><br>
-                               
+
                                 <div class="text">
                                     <p style="font-size:1em;">Glitter or poop won't cut it for the noisy neighbor that never lets you sleep at night. Send them glitter covered poop or a spring-loaded glitter bomb.</p>
                                 </div>
@@ -187,8 +187,8 @@ Just give us their name and address. </br><strong>We'll take care of the rest.</
                                     </a>
                                 </div>
                                 <h3><a href="team-member.html">NICE OLD LADY</a></h3><br>
-                                
-                               
+
+
                                 <div class="text">
                                     <p style="font-size:1em;">Maybe you just want to be a fucking prick and, for no reason, send the nice old lady across the street an annoying sand everywhere box. We won't judge.</p>
                                 </div>
@@ -211,7 +211,7 @@ _________________________________________________________ -->
                     <h3>Ready to prank some one?</h3>
                 </div>
                 <div class="col-md-4 col-sm-12">
-                    <a href="#" class="btn btn-template-transparent-primary">Buy now</a>
+                    <a href="/shop" class="btn btn-template-transparent-primary">Buy now</a>
                 </div>
             </div>
         </div>

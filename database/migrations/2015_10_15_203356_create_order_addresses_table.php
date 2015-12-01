@@ -20,6 +20,8 @@ class CreateOrderAddressesTable extends Migration
             $table->integer('pincode');
             $table->string('phone');
             $table->string('message');
+            $table->string('type');
+            $table->string('city');
             $table->timestamps();
         });
     }

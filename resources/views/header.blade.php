@@ -7,7 +7,7 @@
     <meta name="googlebot" content="index,follow,snippet,archive">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>Universal - All In 1 Template</title>
+    <title>Gags By Mail</title>
 
     <meta name="keywords" content="">
 
@@ -19,7 +19,7 @@
 
     <!-- Css animations  -->
     <link href="{{URL::asset('css/animate.css')}}" rel="stylesheet">
-   
+
     <!-- Theme stylesheet, if possible do not edit this stylesheet -->
     <link href="{{URL::asset('css/style.default.css')}}" rel="stylesheet" id="theme-stylesheet">
 
@@ -46,7 +46,7 @@
 
     <link href="{{URL::asset('css/owl.carousel.css')}}" rel="stylesheet">
     <link href="{{URL::asset('css/owl.theme.css')}}" rel="stylesheet">
-   
+
 </head>
  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
     <script>
@@ -56,9 +56,9 @@
 
           function add(id)
     {
-       
+
           $.ajax({url: "/add/"+id, success: function(result){
-    
+
  document.getElementById("chan").className="btn btn-template-main btn-lg disabled";
  document.getElementById("chan").innerHTML="Added to Cart";
     }});
@@ -71,10 +71,10 @@
    $.ajax({url:'remove/'+id,success:function(result)
 {
     $("th[id='p']").html(JSON.parse(result).price);
-    
+
 }});
-  
-} 
+
+}
 
 </script>
 
@@ -97,7 +97,7 @@ _________________________________________________________ -->
                         <div class="col-xs-7">
                             <div class="social">
                                 <a href="https://www.facebook.com/gagsbymail/?fref=ts" class="external facebook" data-animate-hover="pulse"><i class="fa fa-facebook"></i></a>
-                              
+
                                 <a href="https://twitter.com/GagsByMail" class="external twitter" data-animate-hover="pulse"><i class="fa fa-twitter"></i></a>
                                 <a href="https://instagram/gagsbymail/" class="email" data-animate-hover="pulse"><i class="fa fa-instagram"></i></a>
                             </div>
@@ -152,22 +152,22 @@ _________________________________________________________ -->
                         <div class="navbar-collapse collapse" id="navigation">
 
                             <ul class="nav navbar-nav navbar-right">
-                                <li class="active">
+                                <li >
                                     <a href="/" >Home </a>
-                                    
+
                                 </li>
                                 <li class="dropdown use-yamm yamm-fw">
                                     <a href="/shop" >PRODUCTS</a>
-                                    
+
                                 </li>
 
                                 <!-- ========== FULL WIDTH MEGAMENU ================== -->
-                        
+
                                 <!-- ========== FULL WIDTH MEGAMENU END ================== -->
 
                                 <li class="dropdown">
                                     <a href="/checkout" >Cart</a>
-                             
+
 
                         </div>
                         <!--/.nav-collapse -->
@@ -246,17 +246,20 @@ _________________________________________________________ -->
                     <p>We at GagsByMail believe in spreading happiness across India through our specialized list of products</p>
 
                     <hr>
+                    @if(isset($added)?$added:0)
 
+<span class="label label-success">added to our mailing list</span>
+@endif
                     <h4>Join our monthly newsletter</h4>
 
-                    <form>
+                    <form method="post" action="/mailing">
                         <div class="input-group">
-
-                            <input type="text" class="form-control">
+          {!! csrf_field() !!}
+                            <input type="email" name="mail" class="form-control" required>
 
                             <span class="input-group-btn">
 
-                        <button class="btn btn-default" type="button"><i class="fa fa-send"></i></button>
+                        <button type="submit" class="btn btn-default" type="button"><i class="fa fa-send"></i></button>
 
                     </span>
 
@@ -292,10 +295,10 @@ _________________________________________________________ -->
                     <h4>Contact</h4>
 
                     <p><strong>E-mail us on : info@gagsbymail.com</strong>
-                    
+
                     </p>
 
-                    <a href="contact.html" class="btn btn-small btn-template-main">Go to contact page</a>
+          
 
                     <hr class="hidden-md hidden-lg hidden-sm">
 
@@ -304,7 +307,7 @@ _________________________________________________________ -->
 
 
 
-              
+
                 <!-- /.col-md-3 -->
             </div>
             <!-- /.container -->
@@ -320,9 +323,9 @@ _________________________________________________________ -->
             <div class="container">
                 <div class="col-md-12">
                     <p class="pull-left">&copy; 2015. Gags By Mail</p>
-                    <p class="pull-right">Terms and Condition
+                    <a href="" class="pull-right" data-toggle="modal" data-target="#myModal" onclick="">Terms and Condition
                         <!-- Not removing these links is part of the licence conditions of the template. Thanks for understanding :) -->
-                    </p>
+                    </a>
 
                 </div>
             </div>
@@ -338,7 +341,32 @@ _________________________________________________________ -->
 
     <!-- #### JAVASCRIPT FILES ### -->
 
-   
+    <div class="modal fade" id="myModal" role="dialog">
+        <div class="modal-dialog">
+
+          <!-- Modal content-->
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal">&times;</button>
+              <h4 class="modal-title">Terms And Condition</h4>
+            </div>
+            <div class="modal-body">
+              <ol>
+                <li>You may NOT use our service to threaten, constitute harassment, violate a legal restraint, or any other unlawful purpose. The customer agrees this is a gag gift, novelty service for entertainment ONLY and that is their only intention. Brouhaha LLC, shipyourenemiesglitter.com, shipyourfriendsbacon.com, liability to the customer is limited to the price of the product. Customers ordering any items from this web site agree to release Brouhaha LLC, </li>
+                <li> You must be 18 years old to purchase and recipient must be over the age of 18.</li>
+                <li>You may not send a gift to any person or organization you do not personally know, this includes famous individuals, politicians and companies.</li>
+                <li>All Custom notes are reviewed and any content deemed inappropriate will be omitted, which includes threats and harassment.</li>
+                <li>All content on the site is for comedic purposes only. Please do not use our service for any other reason than as a novelty, gag gift and for entertainment purposes only. If you are not 100% sure the recipient will understand the novelty of the item, DO NOT SEND. </li>
+              </ol>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
     <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
 
     <script src="{{URL::asset('js/jquery.cookie.js')}}"></script>
@@ -347,15 +375,15 @@ _________________________________________________________ -->
     <script src="{{URL::asset('js/jquery.parallax-1.1.3.js')}}"></script>
     <script src="{{URL::asset('js/front.js')}}"></script>
 
-    
+
 
     <!-- owl carousel -->
     <script src="{{URL::asset('js/owl.carousel.min.js')}}"></script>
     <script type="text/javascript">
   /*  $(document).ready(function() {
-     
-   
-     
+
+
+
     });*/
     $("#owl-example").owlCarousel({singleItem:true});
 /* function remove(id)
