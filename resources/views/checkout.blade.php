@@ -21,8 +21,7 @@
 
                 <div class="row">
                     <div class="col-md-12">
-                        <p class="text-muted lead">You currently have 3 item(s) in your cart.</p>
-                    </div>
+                         </div>
 
 
                     <div class="col-md-9 clearfix" id="basket">
