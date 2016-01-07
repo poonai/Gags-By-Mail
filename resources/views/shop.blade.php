@@ -36,6 +36,7 @@
                             <!-- /.image -->
                             <div class="text">
                                 <h3><a href="/detail_pro/{{$single->id}}">{{$single->name}}</a></h3>
+                                <h6>(click on the image to see detailed description.)</h6>
                                 <p class="price">&#8377;{{$single->price}}</p>
                                 <p class="buttons">
                                     <a href="" class="btn btn-default">View detail</a>
