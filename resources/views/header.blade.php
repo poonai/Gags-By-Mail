@@ -298,7 +298,7 @@ _________________________________________________________ -->
 
                     </p>
 
-          
+
 
                     <hr class="hidden-md hidden-lg hidden-sm">
 
@@ -352,8 +352,8 @@ _________________________________________________________ -->
             </div>
             <div class="modal-body">
               <ol>
-                <li>You may NOT use our service to threaten, constitute harassment, violate a legal restraint, or any other unlawful purpose. The customer agrees this is a gag gift, novelty service for entertainment ONLY and that is their only intention. Brouhaha LLC, shipyourenemiesglitter.com, shipyourfriendsbacon.com, liability to the customer is limited to the price of the product. Customers ordering any items from this web site agree to release Brouhaha LLC, </li>
-                <li> You must be 18 years old to purchase and recipient must be over the age of 18.</li>
+                <li>You may NOT use our service to threaten, constitute harassment, violate a legal restraint, or any other unlawful purpose. The customer agrees this is a gag gift, novelty service for entertainment ONLY and that is their only intention. </li>
+                <li>You must be 18 years old to purchase and recipient must be over the age of 18.  </li>
                 <li>You may not send a gift to any person or organization you do not personally know, this includes famous individuals, politicians and companies.</li>
                 <li>All Custom notes are reviewed and any content deemed inappropriate will be omitted, which includes threats and harassment.</li>
                 <li>All content on the site is for comedic purposes only. Please do not use our service for any other reason than as a novelty, gag gift and for entertainment purposes only. If you are not 100% sure the recipient will understand the novelty of the item, DO NOT SEND. </li>
