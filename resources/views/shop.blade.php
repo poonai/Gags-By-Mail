@@ -27,7 +27,7 @@
                 <div class="row products">
                     @foreach($item as $single)
                     <div class="col-md-3 col-sm-4">
-                        <div class="product">
+                        <div class="product" style="border-style:solid;">
                             <div class="image">
                                 <a href="/detail_pro/{{$single->id}}">
                                     <img src="{{ asset($single->url)}}" alt="" class="img-responsive image1">
