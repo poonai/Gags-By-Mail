@@ -135,7 +135,7 @@ Just give us their name and address. </br><strong>We'll take care of the rest.</
                             <div class="team-member" data-animate="fadeInUp">
                                 <div class="image">
                                     <a >
-                                        <img src="{{URL::asset('img/feature3.png')}}" alt="" class="img-responsive img-circle">
+                                        <img src="{{URL::asset('img/feature2.png')}}" alt="" class="img-responsive img-circle">
                                     </a>
                                 </div>
                                 <h3><a >YOUR BOSS</a></h3>
