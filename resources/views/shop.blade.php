@@ -10,7 +10,7 @@
                     </div>
                     <div class="col-md-5">
                         <ul class="breadcrumb">
-                            <li><a href="index.html">Home</a>
+                            <li><a href="/">Home</a>
                             </li>
                             <li>Category full</li>
                         </ul>
@@ -22,7 +22,7 @@
 
         <div id="content">
             <div class="container">
-     
+
 
                 <div class="row products">
                     @foreach($item as $single)
@@ -48,7 +48,7 @@
                     </div>
                 @endforeach
 
-                   
+
                     <!-- /.col-md-4 -->
                 </div>
 @endsection
