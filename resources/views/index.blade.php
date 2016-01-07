@@ -134,11 +134,11 @@ Just give us their name and address. </br><strong>We'll take care of the rest.</
                         <div class="col-md-3 col-sm-3">
                             <div class="team-member" data-animate="fadeInUp">
                                 <div class="image">
-                                    <a href="team-member.html">
+                                    <a >
                                         <img src="{{URL::asset('img/feature3.png')}}" alt="" class="img-responsive img-circle">
                                     </a>
                                 </div>
-                                <h3><a href="team-member.html">YOUR BOSS</a></h3>
+                                <h3><a >YOUR BOSS</a></h3>
 
                                 <div class="social">
 
@@ -152,11 +152,11 @@ Just give us their name and address. </br><strong>We'll take care of the rest.</
                         <div class="col-md-3 col-sm-3" data-animate="fadeInUp">
                             <div class="team-member">
                                 <div class="image">
-                                    <a href="team-member.html">
+                                    <a >
                                         <img src="{{URL::asset('img/feature1.png')}}" alt="" class="img-responsive img-circle">
                                     </a>
                                 </div>
-                                <h3><a href="team-member.html">AN EX</a></h3><br>
+                                <h3><a >AN EX</a></h3><br>
 
                 <div class="text">
                                     <p style="font-size:1em;">Send your ex, that fucked your best friend, a piece of shit because (s)he shit in your heart.</p>
@@ -167,11 +167,11 @@ Just give us their name and address. </br><strong>We'll take care of the rest.</
                         <div class="col-md-3 col-sm-3" data-animate="fadeInUp">
                             <div class="team-member">
                                 <div class="image">
-                                    <a href="team-member.html">
+                                    <a >
                                         <img src="{{URL::asset('img/feature3.png')}}" alt="" class="img-responsive img-circle">
                                     </a>
                                 </div>
-                                <h3><a href="team-member.html">NOISY NEIGHBOUR</a></h3><br>
+                                <h3><a >NOISY NEIGHBOUR</a></h3><br>
 
                                 <div class="text">
                                     <p style="font-size:1em;">Glitter or poop won't cut it for the noisy neighbor that never lets you sleep at night. Send them glitter covered poop or a spring-loaded glitter bomb.</p>
@@ -182,11 +182,11 @@ Just give us their name and address. </br><strong>We'll take care of the rest.</
                         <div class="col-md-3 col-sm-3" data-animate="fadeInUp">
                             <div class="team-member">
                                 <div class="image">
-                                    <a href="team-member.html">
+                                    <a >
                                         <img src="{{URL::asset('img/feature4.png')}}" alt="" class="img-responsive img-circle">
                                     </a>
                                 </div>
-                                <h3><a href="team-member.html">NICE OLD LADY</a></h3><br>
+                                <h3><a >NICE OLD LADY</a></h3><br>
 
 
                                 <div class="text">
