@@ -26,7 +26,7 @@
                                             <div class="form-group">
 
                                                  <label for="firstname">Name</label>
-                                                <input type="text" name="name" class="form-control" id="firstname" required>
+                                                <input pattern="[A-Z,a-z].{0,20}" title="name should be less tha 20 characters" type="text" name="name" class="form-control" id="firstname" required>
                                                  <label for="firstname">Address</label>
                                                 <input type="text" name="address" class="form-control" id="firstname" required>
                                                 <label for="firstname">City</label>
@@ -44,7 +44,7 @@
                                         <div class="col-sm-6">
                                             <div class="form-group">
                                                      <label for="firstname">Name</label>
-                                                <input type="text" name="name1" class="form-control" id="irstname"  required>
+                                                <input type="text" pattern="[A-Z,a-z].{0,20}" name="name1" class="form-control" id="irstname"  title="name should be less tha 20 charcters" required>
                                                  <label for="firstname">Address</label>
                                                 <input type="text" name="address1" class="form-control" id="irstname" required>
                                                   <label for="firstname">City</label>
