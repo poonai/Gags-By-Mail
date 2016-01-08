@@ -157,7 +157,7 @@ _________________________________________________________ -->
 
                                 </li>
                                 <li class="dropdown use-yamm yamm-fw">
-                                    <a href="/shop" >PRODUCTS</a>
+                                    <a href="/shop" >Products</a>
 
                                 </li>
 
