@@ -33,9 +33,12 @@
                                     <img src="{{ asset($single->url)}}" alt="" class="img-responsive image1">
                                 </a>
                             </div>
+
                             <!-- /.image -->
                             <div class="text">
+                                  <hr style="border-width:2px;border-style:solid;border-color:#7D7D7D;">
                                 <h3><a href="/detail_pro/{{$single->id}}">{{$single->name}}</a></h3>
+                                      <hr style="border-width:2px;border-style:solid;border-color:#7D7D7D;">
                                 <h6>(Click on the image to see detailed description)</h6>
                                 <p class="price">&#8377;{{$single->price}}</p>
                                 <p class="buttons">
