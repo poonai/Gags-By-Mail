@@ -159,7 +159,7 @@ Just give us their name and address. </br><strong>We'll take care of the rest.</
                                 <h3><a >AN EX</a></h3><br>
 
                 <div class="text">
-                                    <p style="font-size:1em;">Send your ex, that fucked your best friend, a piece of shit because (s)he shit in your heart.</p>
+                                    <p style="font-size:1em;">Send your ex, that ruined your best friend, a piece of shit because (s)he shit in your heart.</p>
                                 </div>
                             </div>
                             <!-- /.team-member -->
@@ -190,7 +190,7 @@ Just give us their name and address. </br><strong>We'll take care of the rest.</
 
 
                                 <div class="text">
-                                    <p style="font-size:1em;">Maybe you just want to be a fucking prick and, for no reason, send the nice old lady across the street an annoying sand everywhere box. We won't judge.</p>
+                                    <p style="font-size:1em;">Maybe you just want to be a  prick and, for no reason, send the nice old lady across the street an annoying sand everywhere box. We won't judge.</p>
                                 </div>
                             </div>
                             <!-- /.team-member -->
