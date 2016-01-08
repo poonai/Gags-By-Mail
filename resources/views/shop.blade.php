@@ -48,8 +48,9 @@
                         <!-- /.product -->
                     </div>
                 @endforeach
-
+</div>
+</div>
 
                     <!-- /.col-md-4 -->
-                </div>
+
 @endsection
