@@ -27,7 +27,7 @@
                         <div class="row" id="productMain">
                             <div class="col-sm-6">
                                 <div id="mainImage">
-                                    <img src="{{asset($item->url)}}" alt="" class="img-responsive">
+                                    <img src="{{asset($item->url)}}"  class="img-responsive">
                                 </div>
 
                                                               <!-- /.ribbon -->
@@ -67,7 +67,24 @@
 
 
 
-                        
+
+                                                <div style="margin-top:10%;" class="row" id="thumbs">
+                                                    <div class="col-xs-4">
+                                                        <a href="{{asset($item->url)}}" class="thumb">
+                                                            <img src="{{asset($item->url)}}" alt="" class="img-responsive">
+                                                        </a>
+                                                    </div>
+                                                    <div class="col-xs-4">
+                                                        <a href="{{asset($item->url)}}" class="thumb">
+                                                            <img src="{{asset($item->url)}}" alt="" class="img-responsive">
+                                                        </a>
+                                                    </div>
+                                                    <div class="col-xs-4">
+                                                        <a href="{{asset($item->url)}}" class="thumb">
+                                                            <img src="{{asset($item->url)}}" alt="" class="img-responsive">
+                                                        </a>
+                                                    </div>
+                                                </div>
                             </div>
 
                         </div>
