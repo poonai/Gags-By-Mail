@@ -48,7 +48,7 @@
                                 {!! csrf_field() !!}
                                 <div class="form-group">
                                     <label for="name-login">Name</label>
-                                    <input type="text" name="name" class="form-control" id="name-login" required>
+                                    <input type="text" pattern="[A-Z,a-z].{5,20}" name="name" class="form-control" id="name-login" title="character should be 5 to 20 characters" required>
                                 </div>
 
                                 @if(isset($error) ? $error :  0)
