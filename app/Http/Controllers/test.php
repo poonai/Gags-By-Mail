@@ -177,7 +177,7 @@ echo json_encode($response);
 }
 function myplaceorder(Request $request)
 {
-  $registered_user=user::find(Session::get('u_id'));
+  //$registered_=user::find(Session:get('u_id'));
   if($request['place']==1)
   {
      $order_address=new order_address;
@@ -208,7 +208,7 @@ function myplaceorder(Request $request)
   $user=user::find(Session::get('uid'));
   //dd($user);
 
-    return redirect($response['url']."?data_name=".$resgistered_user->name."&data_email=".$registered_user->email."&data_readonly=data_name&data_readonly=data_email");
+    return redirect($response['url']."?data_name=".$user->name."&data_email=".$user->email."&data_readonly=data_name&data_readonly=data_email");
 }
 catch (Exception $e) {
     print('Error: ' . $e->getMessage());
@@ -281,7 +281,7 @@ function sucess($token)
   //dd($product_token);
   foreach($product_token as $orders)
   {
-    $orders->order_info=true;
+    $orders->order_info=1;
     $orders->save();
   }
   Mail::send(['text'=>'mailse'], ['user' => $token], function ($m)  {
