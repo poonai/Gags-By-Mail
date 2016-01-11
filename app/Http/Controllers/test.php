@@ -279,15 +279,23 @@ function sucess($token)
 {
   $product_token=product_token::where('order_token',$token)->get();
   //dd($product_token);
+  $order_id="";
   foreach($product_token as $orders)
   {
+    $order_id=$orders->order_id;
     $orders->order_info=1;
     $orders->save();
   }
-  Mail::send(['text'=>'mailse'], ['user' => $token], function ($m)  {
+  $item_id = array();
+  $items=order::where('order_id',$order_id)->get();
+  foreach ($items as $item) {
+    array_push($item_id, $item->item_id);
+  }
+  $order_address=order_address::where('order_id',$order_id)->get();
+  Mail::send(['text'=>'mailse'], ['address' => $order_address,'item'=>$item_id], function ($m)  {
             $m->to('rbalajis25@gmail.com', 'schoolboy')->subject('Your Reminder!');
         });
-    Mail::send(['text'=>'mailse'], ['user' => $token], function ($m)  {
+    Mail::send(['text'=>'mailse'], ['address' => $order_address,'item'=>$item_id], function ($m)  {
             $m->to('pratik0202.pa@gmail.com', 'schoolboy')->subject('Your Reminder!');
         });
         return view('sucess');
