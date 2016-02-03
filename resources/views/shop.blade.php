@@ -30,7 +30,7 @@
                         <div class="product" style="border-style:solid;">
                             <div class="image">
                                 <a href="/detail_pro/{{$single->id}}">
-                                    <img src="{{ asset($single->url)}}" alt="" class="img-responsive image1">
+                                    <img src="{{ asset($single->url).jpg}}" alt="" class="img-responsive image1">
                                 </a>
                             </div>
 
