@@ -27,7 +27,7 @@
                         <div class="row" id="productMain">
                             <div class="col-sm-6">
                                 <div id="mainImage">
-                                    <img src="{{asset($item->url)}}"  class="img-responsive">
+                                    <img src="{{asset($item->url)}}.jpg"  class="img-responsive">
                                 </div>
 
                                                               <!-- /.ribbon -->
