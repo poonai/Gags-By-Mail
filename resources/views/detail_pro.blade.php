@@ -71,17 +71,17 @@
                                                 <div style="margin-top:10%;" class="row" id="thumbs">
                                                     <div class="col-xs-4">
                                                         <a href="{{asset($item->url)}}" class="thumb">
-                                                            <img src="{{asset($item->url)}}" alt="" class="img-responsive">
+                                                            <img src="{{asset($item->url)}}.jpg" alt="" class="img-responsive">
                                                         </a>
                                                     </div>
                                                     <div class="col-xs-4">
                                                         <a href="{{asset($item->url)}}" class="thumb">
-                                                            <img src="{{asset($item->url)}}" alt="" class="img-responsive">
+                                                            <img src="{{asset($item->url)}}1.jpg" alt="" class="img-responsive">
                                                         </a>
                                                     </div>
                                                     <div class="col-xs-4">
                                                         <a href="{{asset($item->url)}}" class="thumb">
-                                                            <img src="{{asset($item->url)}}" alt="" class="img-responsive">
+                                                            <img src="{{asset($item->url)}}2.jpg" alt="" class="img-responsive">
                                                         </a>
                                                     </div>
                                                 </div>
