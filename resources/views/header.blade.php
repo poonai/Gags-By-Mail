@@ -90,7 +90,7 @@ _________________________________________________________ -->
                 <div class="container">
                     <div class="row">
                         <div class="col-xs-5 contact">
-                            <p class="hidden-sm hidden-xs">E-mail us on : info@gagsbymail.com.</p>
+                            <p class="hidden-sm hidden-xs">E-mail us on : info@gagsbymail.in</p>
                             <p class="hidden-md hidden-lg"><a href="#" data-animate-hover="pulse"><i class="fa fa-phone"></i></a>  <a href="#" data-animate-hover="pulse"><i class="fa fa-envelope"></i></a>
                             </p>
                         </div>
@@ -294,7 +294,7 @@ _________________________________________________________ -->
 
                     <h4>Contact</h4>
 
-                    <p><strong>E-mail us on : info@gagsbymail.com</strong>
+                    <p><strong>E-mail us on : info@gagsbymail.in</strong>
 
                     </p>
 

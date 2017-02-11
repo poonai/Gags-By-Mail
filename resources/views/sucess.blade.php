@@ -11,7 +11,7 @@
                         <section>
                             <div id="text-page">
 
-                               
+
 
                                 <h1>Payment Suceed</h1>
 
@@ -23,7 +23,7 @@ Thanking you for buying from our website. Your order is being processed.
 We have sent you a confirmation mail
 Including invoice.</p>
 
-                        
+
                         </section>
 
                     </div>
@@ -39,7 +39,7 @@ Including invoice.</p>
  _________________________________________________________ -->
                         <div class="panel panel-default sidebar-menu">
 
-                        
+
 
                         <!-- *** PAGES MENU END *** -->
 

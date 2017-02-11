@@ -39,9 +39,13 @@
                                     <i class="fa fa-slideshare"></i>
                                 </div>
                                 <h3>What is this?</h3>
-                                <p>We at Gagsbymail.com believe that anyone that has ever wronged you should pay.  We discreetly and anonymously package the most annoying things possible to receive through mail, and ship them to your worst enemies, in an effort to ruin their day.
+                                <p>We at Gagsbymail.in believe that anyone that has ever wronged you should pay. We
 
-Just give us their name and address. </br><strong>We'll take care of the rest.</strong></p>
+discreetly and anonymously package the most annoying &amp; funny things possible to
+
+receive through mail and ship them to your worst enemies or your best friends, in an
+
+effort to ruin their day. Just give us their name and address.</br><strong>We'll take care of the rest.</strong></p>
                             </div>
                         </div>
                         <div class="col-md-4">
@@ -50,8 +54,11 @@ Just give us their name and address. </br><strong>We'll take care of the rest.</
                                    <i class="fa fa-odnoklassniki"></i>
                                 </div>
                                 <h3>Will my name be revealed?</h3>
-                                <p>No personal information is shared with the recipient other than what you add in the custom message. We do maintain records for legal purposes. :P
-                AND we will be verifying every order.</p>
+                                <p>No personal information will be shared with the recipient other than what you want us
+
+to add in the custom message. We do maintain records for legal purposes. :P
+
+We will be verifying every order.</p>
                             </div>
                         </div>
                         <div class="col-md-4">
@@ -60,7 +67,11 @@ Just give us their name and address. </br><strong>We'll take care of the rest.</
                                     <i class="fa fa-meh-o"></i>
                                 </div>
                                 <h3>Is this a real website?</h3>
-                                <p>Duh, we made a website and paid good money for it to just scam gullible people. We use FedEx to ensure timely delivery to our beloved victims.</p>
+                                <p>DUH! We made a website and paid good money for it to just scam gullible people. We
+
+use some of the India’s best shipping companies to ensure timely delivery to our
+
+beloved victims.</p>
                             </div>
                         </div>
                     </div>
@@ -81,7 +92,9 @@ Just give us their name and address. </br><strong>We'll take care of the rest.</
                                     <i class="fa fa-inr"></i>
                                 </div>
                                 <h3>Cost?</h3>
-                                <p>The costs are inclusive of shipping to any part of India. We use FedEx to provide the best delivery experience possible. However, shipping is sometimes delayed because of on-ground realities.</p>
+                                <p>The costs are inclusive of shipping to any part of India. The price quoted on the products
+
+is what you have to pay, There are no hidden or additional costs involved.</p>
                             </div>
                         </div>
                         <div class="col-md-4">
@@ -90,8 +103,13 @@ Just give us their name and address. </br><strong>We'll take care of the rest.</
                                     <i class="fa fa-map-pin"></i>
                                 </div>
                                 <h3>Why should i pay ?</h3>
-                                <p>First off, use your imagination. We're going to be pouring a tonne of glitter into an envelope with a folded up piece of paper. You know what's going to happen when that special someone opens the envelope & pulls out the letter? The craft herpes will be released & will go everywhere.
-                By Far the most effective and easiest prank ever.</p>
+                                <p>First off, use your imagination. We&#39;re going to be pouring a ton of glitter into an
+
+envelope with a folded up piece of paper. You know what&#39;s going to happen when that
+
+special someone opens the envelope &amp; pulls out the letter? The craft herpes will be
+
+released &amp; will go everywhere. By Far the most effective and easiest prank ever..</p>
                             </div>
                         </div>
                     </div>
@@ -110,7 +128,7 @@ Just give us their name and address. </br><strong>We'll take care of the rest.</
                     <div class="col-md-12">
 
                         <h3 class="text-uppercase">Check out our product</h3>
-                        <p class="lead">We have varied range of pranks which will leave your friend drumstruck</p>
+                        <p class="lead">We have varied range of pranks which will leave your friend Dumbstruck</p>
                         <p class="text-center">
                             <a href="/shop" class="btn btn-template-transparent-black btn-lg">Prank Now</a>
                         </p>
@@ -186,11 +204,11 @@ Just give us their name and address. </br><strong>We'll take care of the rest.</
                                         <img src="{{URL::asset('img/feature4.png')}}" alt="" class="img-responsive img-circle">
                                     </a>
                                 </div>
-                                <h3><a >NICE OLD LADY</a></h3><br>
+                                <h3><a >Good Old Friend</a></h3><br>
 
 
                                 <div class="text">
-                                    <p style="font-size:1em;">Maybe you just want to be a  prick and, for no reason, send the nice old lady across the street an annoying sand everywhere box. We won't judge.</p>
+                                    <p style="font-size:1em;">Maybe you just want to be a  prick and, for no reason, send the Good Old Friend across the street an annoying sand everywhere box. We won't judge.</p>
                                 </div>
                             </div>
                             <!-- /.team-member -->
